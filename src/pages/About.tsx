@@ -78,7 +78,7 @@ const About = () => {
               
               <div className="relative">
                 <div className="">
-                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-50 h-50" />
+                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-48 h-48" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg border border-neutral-100">
                   <div className="flex items-center gap-3">
