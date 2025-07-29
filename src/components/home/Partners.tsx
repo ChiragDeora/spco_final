@@ -1,11 +1,11 @@
 
 // Import partner logos
 import ntnLogo from '@/assets/ntn.png';
-import mibaLogo from '@/assets/miba.png';
+import mibaLogo from '@/assets/Miba.png';
 import rbcBearingsLogo from '@/assets/rbc_bearings.png';
 import zenLogo from '@/assets/zen.png';
 import cogelsaLogo from '@/assets/cogelsa.png';
-import rheinmetallLogo from '@/assets/rheinmetall.png';
+import rheinmetallLogo from '@/assets/Rheinmetall.png';
 
 const Partners = () => {
   const partners = [
