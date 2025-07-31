@@ -33,7 +33,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
             <img
               src={product.image}
               alt={product.name}
-              className="max-w-full max-h-[400px] object-contain"
+              className="max-w-full max-h-[400px] object-contain animate-fade-up"
             />
           </div>
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import spcoAboutus from '@/assets/aboutus.svg';
+import spcoAboutus from '@/assets/aboutus.png';
 import { CheckCircle, MapPin, Award, Users, TrendingUp, BarChart3 } from "lucide-react";
 const About = () => {
   useEffect(() => {
@@ -76,9 +76,9 @@ const About = () => {
                 </p>
               </div>
               
-              <div className="relative">
+              <div className="relative lg:h-[500px]">
                 <div className="">
-                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-60 h-60" />
+                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-full h-full object-contain animate-fade-up" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg border border-neutral-100">
                   <div className="flex items-center gap-3">
@@ -268,16 +268,16 @@ const About = () => {
               <div className="order-1 lg:order-2">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1630569470960-ec1e8c073b13?q=80&w=2069&auto=format&fit=crop" alt="SPCO Warehouse" className="w-full h-full object-cover aspect-square" />
+                    <img src="https://images.unsplash.com/photo-1630569470960-ec1e8c073b13?q=80&w=2069&auto=format&fit=crop" alt="SPCO Warehouse" className="w-full h-full object-cover aspect-square animate-fade-up" />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1556221430-4dd6d1b1f9c1?q=80&w=2070&auto=format&fit=crop" alt="Quality Control Lab" className="w-full h-full object-cover aspect-square" />
+                    <img src="https://images.unsplash.com/photo-1556221430-4dd6d1b1f9c1?q=80&w=2070&auto=format&fit=crop" alt="Quality Control Lab" className="w-full h-full object-cover aspect-square animate-fade-up" />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=2070&auto=format&fit=crop" alt="Technical Support" className="w-full h-full object-cover aspect-square" />
+                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=2070&auto=format&fit=crop" alt="Technical Support" className="w-full h-full object-cover aspect-square animate-fade-up" />
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Distribution" className="w-full h-full object-cover aspect-square" />
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Distribution" className="w-full h-full object-cover aspect-square animate-fade-up" />
                   </div>
                 </div>
               </div>

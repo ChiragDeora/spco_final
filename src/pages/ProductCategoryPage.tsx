@@ -208,7 +208,7 @@ const ProductCategoryPage = () => {
             <img 
               src={categoryInfo.image} 
               alt={categoryInfo.name} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover animate-fade-up"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-spco-900/90 to-spco-800/60"></div>
           </div>
@@ -282,7 +282,7 @@ const ProductCategoryPage = () => {
                 <img 
                   src={categoryInfo.image}
                   alt={categoryInfo.name}
-                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                  className="w-full h-96 object-cover rounded-lg shadow-lg animate-fade-up"
                 />
               </div>
             </div>

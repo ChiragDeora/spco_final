@@ -61,7 +61,7 @@ const ComingSoon = () => {
           <div className="container relative z-10 mx-auto px-4 text-center">
             {/* Logo */}
             <div className="flex justify-center mb-8">
-              <img src={spcoLogoBlack} alt="SPCO" className="h-16 w-auto" />
+              <img src={spcoLogoBlack} alt="SPCO" className="h-16 w-auto animate-fade-up" />
             </div>
 
             {/* Main Content */}

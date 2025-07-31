@@ -82,7 +82,7 @@ const IndustryDetail = () => {
             <img 
               src={industry.image} 
               alt={industry.name} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover animate-fade-up"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-spco-900/90 to-spco-800/60"></div>
           </div>
@@ -220,7 +220,7 @@ const IndustryDetail = () => {
                   <img 
                     src={industry.image}
                     alt={`${industry.name} Case Study`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center animate-fade-up"
                   />
                   <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/30"></div>
                 </div>

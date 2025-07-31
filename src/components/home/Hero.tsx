@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import cogelsa from '@/assets/cogelsa.png';
 import ntn from '@/assets/ntn.png';
-import svgArrows from '@/assets/SVG Arrows from Chirag.svg';
+import svgArrows from '@/assets/homeArrows.png';
 const Hero = () => {
   return <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -47,8 +47,8 @@ const Hero = () => {
             <div className="mt-10 pt-6 border-t border-neutral-200">
               <p className="text-sm text-neutral-500 mb-3">Trusted Distributors</p>
               <div className="flex flex-wrap gap-6 items-center opacity-70">
-                <img src={ntn} alt="ntn" className="h-6 object-contain" />
-                <img src={cogelsa} alt="cogelsa" className="h-6 object-contain" />
+                <img src={ntn} alt="ntn" className="h-6 object-contain animate-fade-up" />
+                <img src={cogelsa} alt="cogelsa" className="h-6 object-contain animate-fade-up" />
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Hero = () => {
               <img 
                 src={svgArrows} 
                 alt="Product category arrows" 
-                className="w-full h-full object-contain p-8"
+                className="w-full h-full object-contain animate-fade-up"
               />
             </div>
           </div>

@@ -60,7 +60,7 @@ const Partners = () => {
               <img 
                 src={partner.src} 
                 alt={partner.name} 
-                className={`${partner.size} object-contain opacity-80 hover:opacity-100 transition-custom`}
+                className={`${partner.size} object-contain opacity-80 hover:opacity-100 transition-custom animate-fade-up`}
               />
             </div>
           ))}

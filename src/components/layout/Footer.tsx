@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img src={spcoLogoWhite} alt="SPCO" className="h-6 w-auto" />
+              <img src={spcoLogoWhite} alt="SPCO" className="h-6 w-auto animate-fade-up" />
             </div>
             <p className="text-neutral-300 text-sm">
               Leading distributor of premium hardware components, providing quality bearings, lubricants and hardware supplies to industries across India.

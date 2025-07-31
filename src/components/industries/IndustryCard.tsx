@@ -28,7 +28,7 @@ const IndustryCard = ({ industry, className }: IndustryCardProps) => {
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 animate-fade-up"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
           <div className="p-6">

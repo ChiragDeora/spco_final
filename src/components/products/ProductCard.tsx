@@ -35,7 +35,7 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500 animate-fade-up"
         />
         <div className="absolute top-3 left-3">
           <span className="inline-flex items-center rounded-full bg-spco-50 px-2.5 py-0.5 text-xs font-medium text-spco-700">
