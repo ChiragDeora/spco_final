@@ -24,7 +24,8 @@ import mibaLogo from '@/assets/Miba.png';
 import orionLogo from '@/assets/orion_logo.png';
 import zollernLogo from '@/assets/zollern_logo.webp';
 import johnCraneLogo from '@/assets/john_crane_logo.jpg';
-import spcoLogo from '@/assets/spco-logo-dark.png';
+// import spcoLogo from '@/assets/spco-logo-dark.png';
+import spcoLogo from '@/assets/SPCO_Logo.png';
 
 interface CategoryInfo {
   id: string;
@@ -112,7 +113,9 @@ const ProductCategoryPage = () => {
       {
         name: "SPCO",
         description: "Our own range of high-quality adaptor sleeves designed and manufactured to meet the highest industry standards. These components ensure secure bearing mounting and reliable performance in various mechanical assemblies.",
-        logo: spcoLogo
+        // logo: spcoLogo,
+        logo: spcoLogo,
+        size: "h-20 w-auto"
       }
     ]
   };
