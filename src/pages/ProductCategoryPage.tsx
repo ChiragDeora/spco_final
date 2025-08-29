@@ -35,7 +35,7 @@ interface Brand {
 }
 
 const ProductCategoryPage = () => {
-  const { categoryId } = useParams<{ categoryId: string }>();
+  const { category } = useParams<{ category: string }>();
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -244,7 +244,7 @@ const ProductCategoryPage = () => {
     return brandsData[categoryId] || [];
   };
 
-  const categoryInfo = categoriesData[categoryId || ""];
+  const categoryInfo = categoriesData[category || ""];
 
   // Sample products data - in a real app, this would come from an API
   const sampleProducts: Product[] = [
