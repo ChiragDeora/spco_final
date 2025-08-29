@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import spcoAboutus from '@/assets/aboutus.png';
 import { CheckCircle, MapPin, Award, Users, TrendingUp, BarChart3 } from "lucide-react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 const About = () => {
   useEffect(() => {
     // Scroll to top when component mounts
@@ -78,7 +79,13 @@ const About = () => {
               
               <div className="relative lg:h-[500px]">
                 <div className="">
-                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-full h-full object-contain animate-fade-up" />
+                  <OptimizedImage 
+                    src={spcoAboutus} 
+                    alt="SPCO Headquarters" 
+                    className="w-full h-full object-contain animate-fade-up"
+                    priority={true}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg border border-neutral-100">
                   <div className="flex items-center gap-3">
@@ -161,7 +168,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Company Timeline */}
+        {/* Company Timeline - Commented out */}
+        {/*
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -172,13 +180,12 @@ const About = () => {
             </div>
             
             <div className="relative">
-              {/* Vertical line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-neutral-200"></div>
               
               <div className="space-y-12">
-                {timeline.map((item, index) => <div key={index} className="relative"> 
-                    {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent-500 border-4 border-white"></div>
+                {timeline.map((item, index) => (
+                  <div key={index} className="relative"> 
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent-500 border-4 border-white"></div>
                     
                     <div className={`flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                       <div className="md:w-1/2"></div>
@@ -196,11 +203,13 @@ const About = () => {
                         </div>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
+        */}
 
         {/* Facilities and Capabilities */}
         <section className="py-16 bg-neutral-50">
@@ -212,73 +221,56 @@ const About = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <Users className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Team & Expertise</h3>
-                      <p className="text-neutral-600">
-                        With a dedicated team of over 50 professionals, our strength lies in our deep industry knowledge and technical expertise. We don't simply supply products; we provide comprehensive solutions by understanding and addressing our customers' unique challenges.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <BarChart3 className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Advanced Infrastructure</h3>
-                      <p className="text-neutral-600">
-                        Our fully equipped, state-of-the-art warehouse spans over 25,000 sq ft, ensuring efficient inventory management and swift dispatch of products. This robust infrastructure allows us to maintain a vast stock of critical components and meet the demands of a diverse industrial clientele.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Solution-Oriented Services</h3>
-                      <p className="text-neutral-600">
-                        We go beyond standard product distribution by offering specialized services. Our team provides tailored lubrication solutions designed for specific applications and offers detailed failure analysis services to identify root causes and prevent future issues, enhancing operational reliability.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <Award className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Technical Training & Support</h3>
-                      <p className="text-neutral-600">
-                        We empower our clients with knowledge through dedicated technical training programs. These sessions are designed to give your team a better understanding of products and their applications, equipping them to handle real-life situations more effectively and make informed decisions on the plant floor.
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Team & Expertise */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <Users className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Team & Expertise</h3>
+                  <p className="text-neutral-600">
+                    With a dedicated team of over 50 professionals, our strength lies in our deep industry knowledge and technical expertise. We don't simply supply products; we provide comprehensive solutions by understanding and addressing our customers' unique challenges.
+                  </p>
                 </div>
               </div>
               
-              <div className="order-1 lg:order-2">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1630569470960-ec1e8c073b13?q=80&w=2069&auto=format&fit=crop" alt="SPCO Warehouse" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1556221430-4dd6d1b1f9c1?q=80&w=2070&auto=format&fit=crop" alt="Quality Control Lab" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=2070&auto=format&fit=crop" alt="Technical Support" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Distribution" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
+              {/* Advanced Infrastructure */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <BarChart3 className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Advanced Infrastructure</h3>
+                  <p className="text-neutral-600">
+                    Our fully equipped, state-of-the-art warehouse spans over 25,000 sq ft, ensuring efficient inventory management and swift dispatch of products. This robust infrastructure allows us to maintain a vast stock of critical components and meet the demands of a diverse industrial clientele.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Solution-Oriented Services */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <CheckCircle className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Solution-Oriented Services</h3>
+                  <p className="text-neutral-600">
+                    We go beyond standard product distribution by offering specialized services. Our team provides tailored lubrication solutions designed for specific applications and offers detailed failure analysis services to identify root causes and prevent future issues, enhancing operational reliability.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Technical Training & Support */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <Award className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Technical Training & Support</h3>
+                  <p className="text-neutral-600">
+                    We empower our clients with knowledge through dedicated technical training programs. These sessions are designed to give your team a better understanding of products and their applications, equipping them to handle real-life situations more effectively and make informed decisions on the plant floor.
+                  </p>
                 </div>
               </div>
             </div>
@@ -298,9 +290,12 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Sudhir Deora */}
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-neutral-100 card-hover">
-                <div className="aspect-[3/2] bg-neutral-100">
+                {/* <div className="aspect-[3/2] bg-gradient-to-br from-spco-50 to-spco-100 flex items-center justify-center">
                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="Sudhir Deora" className="w-full h-full object-cover" />
-                </div>
+                  <div className="w-24 h-24 bg-spco-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-3xl font-bold">SD</span>
+                  </div>
+                </div> */}
                 <div className="p-6">
                   <h3 className="text-2xl font-display font-semibold text-spco-700 mb-2">
                     Sudhir Deora
@@ -316,9 +311,12 @@ const About = () => {
 
               {/* Rajesh Deora */}
               <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-neutral-100 card-hover">
-                <div className="aspect-[3/2] bg-neutral-100">
+                {/* <div className="aspect-[3/2] bg-gradient-to-br from-spco-50 to-spco-100 flex items-center justify-center">
                   <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" alt="Rajesh Deora" className="w-full h-full object-cover" />
-                </div>
+                  <div className="w-24 h-24 bg-spco-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-3xl font-bold">RD</span>
+                  </div>
+                </div> */}
                 <div className="p-6">
                   <h3 className="text-2xl font-display font-semibold text-spco-700 mb-2">
                     Rajesh Deora

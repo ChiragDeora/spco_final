@@ -1,23 +1,25 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import cogelsa from '@/assets/cogelsa.png';
 import ntn from '@/assets/ntn.png';
-import svgArrows from '@/assets/homeArrows.png';
+import heroVideo from '@/assets/Home_video.mp4';
+import OptimizedVideo from "@/components/ui/OptimizedVideo";
+
 const Hero = () => {
-  return <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+  return (
+    <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1627123430738-0ca69522dcc1?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
-        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-accent-500 opacity-[0.15] blur-3xl"></div>
-        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-spco-600 opacity-[0.07] blur-3xl"></div>
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-b from-white via-blue-50 to-blue-100 opacity-100"></div>
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-r from-white via-blue-50 to-blue-100 opacity-100"></div>
+
+        <div className="absolute right-0 top-20 h-72 w-72 rounded-full bg-spco-600 opacity-[0.07] blur-3xl"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl animate-fade-up lg:mr-auto">
             <div>
-              <span className="inline-flex items-center rounded-full bg-accent-50 px-2.5 py-0.5 text-xs font-medium text-accent-700 mb-4 animate-fade-in">
-                Premium Distributor
-              </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-spco-800 leading-tight">
                 <span className="block">Where Precision</span>
                 <span className="block text-spco-600">Meets Performance</span>
@@ -57,16 +59,31 @@ const Hero = () => {
           </div>
           
           <div className="relative lg:h-[500px]">
-            <div className="">
-              <img 
-                src={svgArrows} 
-                alt="Product category arrows" 
-                className="w-full h-full object-contain animate-fade-up"
-              />
-            </div>
+            <CardContainer 
+              className="!py-0 !flex !items-center !justify-center" 
+              containerClassName="!py-0 !flex !items-center !justify-center"
+            >
+              <CardBody className="!h-auto !w-auto !bg-transparent !border-none !shadow-none !p-0 !transform-none">
+                <CardItem translateZ="30" className="w-full h-full">
+                  <OptimizedVideo 
+                    src={heroVideo} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="w-full h-full object-contain animate-fade-up"
+                    style={{
+                      mixBlendMode: 'multiply'
+                    }}
+                  />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

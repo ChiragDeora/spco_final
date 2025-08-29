@@ -21,10 +21,14 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
 
+    /* Type checking */
+    "types": ["node"],
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

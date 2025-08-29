@@ -13,27 +13,27 @@ const Partners = () => {
     {
       name: "JSW",
       src: jswLogo,
-      size: "h-20 w-auto"
+      size: "h-28 w-auto" // Increased from h-20
     },
     {
       name: "Indian Railways",
       src: indianRailwaysLogo,
-      size: "h-70 w-auto"
+      size: "h-32 w-auto" // Increased from h-70 (which was invalid)
     },
     {
       name: "BHEL",
       src: bhelLogo,
-      size: "h-20 w-auto"
+      size: "h-24 w-auto" // Increased from h-20
     },
     {
       name: "TATA",
       src: tataLogo,
-      size: "h-20 w-auto"
+      size: "h-26 w-auto" // Increased from h-20
     },
     {
       name: "IOCL",
       src: ioclLogo,
-      size: "h-80 w-auto"
+      size: "h-30 w-auto" // Increased from h-80 (which was invalid)
     }
   ];
 
@@ -47,11 +47,11 @@ const Partners = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
           {customers.map((customer, index) => (
             <div 
               key={index} 
-              className="bg-white p-6 rounded-lg border border-neutral-100 shadow-sm hover:shadow-md transition-custom flex items-center justify-center h-32"
+              className="bg-white p-8 rounded-lg border border-neutral-100 shadow-sm hover:shadow-md transition-custom flex items-center justify-center h-56"
             >
               <img 
                 src={customer.src} 

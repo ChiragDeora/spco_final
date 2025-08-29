@@ -49,12 +49,12 @@ const ProductCategoryPage = () => {
         name: "NTN",
         description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
         logo: "/src/assets/ntn.png"
-      },
-      {
-        name: "ZEN",
-        description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
-        logo: "/src/assets/zen.png"
       }
+      // {
+      //   name: "ZEN",
+      //   description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
+      //   logo: "/src/assets/zen.png"
+      // }
     ],
     "speciality-lubricants": [
       {
@@ -75,6 +75,21 @@ const ProductCategoryPage = () => {
         name: "MIBA",
         description: "MIBA is a global developer and manufacturer of functional components for engines and powertrains. They specialize in high-precision parts, including engine and industrial bearings. MIBA is a key partner for many leading companies in the automotive, commercial vehicle, and power generation markets, known for its focus on efficiency and sustainability.",
         logo: "/src/assets/Miba.png"
+      },
+      {
+        name: "Orion",
+        description: "With a history that dates back to the mid-20th century, Orion built a reputation as a trusted designer and manufacturer of hydrodynamic bearings. Based in the United States, their legacy is rooted in providing high-quality pivoting shoe and tilting pad journal bearings. The acquisition by Miba has seamlessly integrated Orion's long-standing expertise and product quality into a global network.",
+        logo: "/src/assets/orion_logo.png"
+      },
+      {
+        name: "Zollern",
+        description: "Zollern has a history spanning more than 300 years and is one of Germany's oldest family-owned companies. Renowned for its metal processing and engineering, Zollern was a key player in the plain and tilting pad bearing market. Their hydrodynamic bearings were integral to power generation and various industrial applications. Miba's joint venture with Zollern in 2019 brought together their combined know-how, creating a powerhouse in the industrial bearing sector.",
+        logo: "/src/assets/zollern_logo.webp"
+      },
+      {
+        name: "John Crane",
+        description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
+        logo: "/src/assets/john_crane_logo.jpg"
       }
     ],
     "self-lubricating-bushes": [

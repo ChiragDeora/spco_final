@@ -46,7 +46,7 @@ const Header = () => {
         { name: 'Adaptor Sleeves', href: '/products/adaptor-sleeves' },
       ]
     },
-    { name: 'Shop', href: '/products' },
+    // { name: 'Shop', href: '/products' },
     // { 
     //   name: 'Industries', 
     //   href: '/industries',
@@ -126,7 +126,7 @@ const Header = () => {
 
           {/* Search and Mobile Menu Toggle */}
           <div className="flex items-center">
-            <SearchBar className="hidden md:flex mr-4 w-[200px] lg:w-[250px]" />
+            {/* <SearchBar className="hidden md:flex mr-4 w-[200px] lg:w-[250px]" /> */}
             
             <Link 
               to="/contact" 
@@ -154,7 +154,7 @@ const Header = () => {
         style={{ top: '60px' }}
       >
         <div className="h-full overflow-y-auto px-4 py-6">
-          <SearchBar className="mb-6" />
+          {/* <SearchBar className="mb-6" /> */}
           
           <nav className="space-y-2">
             {navigation.map((item) => (
