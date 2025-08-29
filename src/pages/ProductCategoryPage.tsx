@@ -4,19 +4,27 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import ProductGrid from "@/components/products/ProductGrid";
+// import ProductGrid from "@/components/products/ProductGrid";
 import { Product } from "@/components/products/ProductCard";
 import { getProductsByCategory } from "@/lib/data";
-import { ArrowRight, CheckCircle, Phone, Cog, Shield, Award } from "lucide-react";
+import { Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
-import rollerbearings from '@/assets/rollerbearings.jpg';
+// import rollerbearings from '@/assets/rollerbearings.jpg';
 import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
 import AutoParts from '@/assets/Autoparts.jpg';
 import Bushes from '@/assets/Bushes.jpg';
-import tools from '@/assets/tools.jpg';
+// import tools from '@/assets/tools.jpg';
 import permaglideLogo from '@/assets/permaglide_logo.png';
 import journalLogo from '@/assets/journal_and_tilting_pad_logo.jpg';
 import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
+import ntnLogo from '@/assets/ntn.png';
+import cogelsaLogo from '@/assets/cogelsa.png';
+import rheinmetallLogo from '@/assets/Rheinmetall.png';
+import mibaLogo from '@/assets/Miba.png';
+import orionLogo from '@/assets/orion_logo.png';
+import zollernLogo from '@/assets/zollern_logo.webp';
+import johnCraneLogo from '@/assets/john_crane_logo.jpg';
+import spcoLogo from '@/assets/spco-logo-dark.png';
 
 interface CategoryInfo {
   id: string;
@@ -38,7 +46,7 @@ interface Brand {
 const ProductCategoryPage = () => {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
-  const [products, setProducts] = useState<Product[]>([]);
+  const [, setProducts] = useState<Product[]>([]);
   const [categoryInfo, setCategoryInfo] = useState<CategoryInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +56,7 @@ const ProductCategoryPage = () => {
       {
         name: "NTN",
         description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
-        logo: "/src/assets/ntn.png"
+        logo: ntnLogo
       }
       // {
       //   name: "ZEN",
@@ -60,36 +68,36 @@ const ProductCategoryPage = () => {
       {
         name: "Cogelsa",
         description: "Cogelsa is a Spanish company with over a century of experience in developing, manufacturing, and marketing high-tech lubricants and greases. They are a global expert in industrial lubrication, offering specialized solutions for a wide range of sectors. Cogelsa is dedicated to providing high-performance, cost-efficient, and sustainable lubrication products.",
-        logo: "/src/assets/cogelsa.png"
+        logo: cogelsaLogo
       }
     ],
     "automotive-parts": [
       {
         name: "Rheinmetall",
         description: "Rheinmetall is a leading international technology group with a broad portfolio of products, including a significant presence in the automotive sector. The company provides a wide range of advanced solutions for engines and other automotive components. Known for its innovation and high-quality standards, Rheinmetall's portfolio is trusted by leading automotive manufacturers worldwide.",
-        logo: "/src/assets/Rheinmetall.png"
+        logo: rheinmetallLogo
       }
     ],
     "journal-tilting-pad-bearings": [
       {
         name: "MIBA",
         description: "MIBA is a global developer and manufacturer of functional components for engines and powertrains. They specialize in high-precision parts, including engine and industrial bearings. MIBA is a key partner for many leading companies in the automotive, commercial vehicle, and power generation markets, known for its focus on efficiency and sustainability.",
-        logo: "/src/assets/Miba.png"
+        logo: mibaLogo
       },
       {
         name: "Orion",
         description: "With a history that dates back to the mid-20th century, Orion built a reputation as a trusted designer and manufacturer of hydrodynamic bearings. Based in the United States, their legacy is rooted in providing high-quality pivoting shoe and tilting pad journal bearings. The acquisition by Miba has seamlessly integrated Orion's long-standing expertise and product quality into a global network.",
-        logo: "/src/assets/orion_logo.png"
+        logo: orionLogo
       },
       {
         name: "Zollern",
         description: "Zollern has a history spanning more than 300 years and is one of Germany's oldest family-owned companies. Renowned for its metal processing and engineering, Zollern was a key player in the plain and tilting pad bearing market. Their hydrodynamic bearings were integral to power generation and various industrial applications. Miba's joint venture with Zollern in 2019 brought together their combined know-how, creating a powerhouse in the industrial bearing sector.",
-        logo: "/src/assets/zollern_logo.webp"
+        logo: zollernLogo
       },
       {
         name: "John Crane",
         description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
-        logo: "/src/assets/john_crane_logo.jpg"
+        logo: johnCraneLogo
       }
     ],
     "self-lubricating-bushes": [
@@ -104,7 +112,7 @@ const ProductCategoryPage = () => {
       {
         name: "SPCO",
         description: "Our own range of high-quality adaptor sleeves designed and manufactured to meet the highest industry standards. These components ensure secure bearing mounting and reliable performance in various mechanical assemblies.",
-        logo: "/src/assets/spco-logo-dark.png"
+        logo: spcoLogo
       }
     ]
   };
