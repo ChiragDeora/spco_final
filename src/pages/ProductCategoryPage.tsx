@@ -1,18 +1,19 @@
 
-import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { ArrowRight, Award } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import ProductCard from "@/components/products/ProductCard";
+import ProductGrid from "@/components/products/ProductGrid";
 import { Product } from "@/components/products/ProductCard";
-import { Button } from "@/components/ui/button";
+import { getProductsByCategory } from "@/lib/data";
+import { ArrowRight, CheckCircle, Phone, Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 import rollerbearings from '@/assets/rollerbearings.jpg';
 import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
-import AutoParts from '@/assets/Autoparts.jpg';  
+import AutoParts from '@/assets/Autoparts.jpg';
 import Bushes from '@/assets/Bushes.jpg';
+import tools from '@/assets/tools.jpg';
 import permaglideLogo from '@/assets/permaglide_logo.png';
 import journalLogo from '@/assets/journal_and_tilting_pad_logo.jpg';
 import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
@@ -36,11 +37,82 @@ interface Brand {
 
 const ProductCategoryPage = () => {
   const { category } = useParams<{ category: string }>();
+  const navigate = useNavigate();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categoryInfo, setCategoryInfo] = useState<CategoryInfo | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
+  // Brands data for each category
+  const brandsData: { [key: string]: Brand[] } = {
+    "bearings": [
+      {
+        name: "NTN",
+        description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
+        logo: "/src/assets/ntn.png"
+      }
+      // {
+      //   name: "ZEN",
+      //   description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
+      //   logo: "/src/assets/zen.png"
+      // }
+    ],
+    "speciality-lubricants": [
+      {
+        name: "Cogelsa",
+        description: "Cogelsa is a Spanish company with over a century of experience in developing, manufacturing, and marketing high-tech lubricants and greases. They are a global expert in industrial lubrication, offering specialized solutions for a wide range of sectors. Cogelsa is dedicated to providing high-performance, cost-efficient, and sustainable lubrication products.",
+        logo: "/src/assets/cogelsa.png"
+      }
+    ],
+    "automotive-parts": [
+      {
+        name: "Rheinmetall",
+        description: "Rheinmetall is a leading international technology group with a broad portfolio of products, including a significant presence in the automotive sector. The company provides a wide range of advanced solutions for engines and other automotive components. Known for its innovation and high-quality standards, Rheinmetall's portfolio is trusted by leading automotive manufacturers worldwide.",
+        logo: "/src/assets/Rheinmetall.png"
+      }
+    ],
+    "journal-tilting-pad-bearings": [
+      {
+        name: "MIBA",
+        description: "MIBA is a global developer and manufacturer of functional components for engines and powertrains. They specialize in high-precision parts, including engine and industrial bearings. MIBA is a key partner for many leading companies in the automotive, commercial vehicle, and power generation markets, known for its focus on efficiency and sustainability.",
+        logo: "/src/assets/Miba.png"
+      },
+      {
+        name: "Orion",
+        description: "With a history that dates back to the mid-20th century, Orion built a reputation as a trusted designer and manufacturer of hydrodynamic bearings. Based in the United States, their legacy is rooted in providing high-quality pivoting shoe and tilting pad journal bearings. The acquisition by Miba has seamlessly integrated Orion's long-standing expertise and product quality into a global network.",
+        logo: "/src/assets/orion_logo.png"
+      },
+      {
+        name: "Zollern",
+        description: "Zollern has a history spanning more than 300 years and is one of Germany's oldest family-owned companies. Renowned for its metal processing and engineering, Zollern was a key player in the plain and tilting pad bearing market. Their hydrodynamic bearings were integral to power generation and various industrial applications. Miba's joint venture with Zollern in 2019 brought together their combined know-how, creating a powerhouse in the industrial bearing sector.",
+        logo: "/src/assets/zollern_logo.webp"
+      },
+      {
+        name: "John Crane",
+        description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
+        logo: "/src/assets/john_crane_logo.jpg"
+      }
+    ],
+    "self-lubricating-bushes": [
+      {
+        name: "Permaglide",
+        description: "Permaglide is a registered trademark of KS Gleitlager, a leading German specialist in high-precision plain bearings. The brand name itself signifies 'permanently low-wear gliding,' highlighting the durability and low-maintenance nature of its products. Permaglide bearings are a preferred choice for their high rigidity, long service life, and excellent emergency running properties in both dry and lubricated applications.",
+        logo: permaglideLogo,
+        size: "h-20 w-auto"
+      }
+    ],
+    "adaptor-sleeves": [
+      {
+        name: "SPCO",
+        description: "Our own range of high-quality adaptor sleeves designed and manufactured to meet the highest industry standards. These components ensure secure bearing mounting and reliable performance in various mechanical assemblies.",
+        logo: "/src/assets/spco-logo-dark.png"
+      }
+    ]
+  };
+
+  // Function to get brands for a specific category
+  const getBrandsForCategory = (categoryId: string): Brand[] => {
+    return brandsData[categoryId] || [];
+  };
 
   // Category data with detailed information
   const categoriesData: { [key: string]: CategoryInfo } = {
@@ -172,143 +244,36 @@ const ProductCategoryPage = () => {
     }
   };
 
-  // Brands data for each category
-  const brandsData: { [key: string]: Brand[] } = {
-    "bearings": [
-      {
-        name: "NTN",
-        description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
-        logo: "/src/assets/ntn.png"
+  useEffect(() => {
+    // Scroll to top when component mounts or category changes
+    window.scrollTo(0, 0);
+    setLoading(true);
+    
+    if (category) {
+      const categoryData = categoriesData[category];
+      
+      if (categoryData) {
+        // Use the actual category name from categoryData to get products
+        const categoryProducts = getProductsByCategory(categoryData.name);
+        setProducts(categoryProducts);
+        setCategoryInfo(categoryData);
+      } else {
+        // If no category data found, redirect to main products page
+        navigate("/products", { replace: true });
       }
-      // {
-      //   name: "ZEN",
-      //   description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
-      //   logo: "/src/assets/zen.png"
-      // }
-    ],
-    "speciality-lubricants": [
-      {
-        name: "Cogelsa",
-        description: "Cogelsa is a Spanish company with over a century of experience in developing, manufacturing, and marketing high-tech lubricants and greases. They are a global expert in industrial lubrication, offering specialized solutions for a wide range of sectors. Cogelsa is dedicated to providing high-performance, cost-efficient, and sustainable lubrication products.",
-        logo: "/src/assets/cogelsa.png"
-      }
-    ],
-    "automotive-parts": [
-      {
-        name: "Rheinmetall",
-        description: "Rheinmetall is a leading international technology group with a broad portfolio of products, including a significant presence in the automotive sector. The company provides a wide range of advanced solutions for engines and other automotive components. Known for its innovation and high-quality standards, Rheinmetall's portfolio is trusted by leading automotive manufacturers worldwide.",
-        logo: "/src/assets/Rheinmetall.png"
-      }
-    ],
-    "journal-tilting-pad-bearings": [
-      {
-        name: "MIBA",
-        description: "MIBA is a global developer and manufacturer of functional components for engines and powertrains. They specialize in high-precision parts, including engine and industrial bearings. MIBA is a key partner for many leading companies in the automotive, commercial vehicle, and power generation markets, known for its focus on efficiency and sustainability.",
-        logo: "/src/assets/Miba.png"
-      },
-      {
-        name: "Orion",
-        description: "With a history that dates back to the mid-20th century, Orion built a reputation as a trusted designer and manufacturer of hydrodynamic bearings. Based in the United States, their legacy is rooted in providing high-quality pivoting shoe and tilting pad journal bearings. The acquisition by Miba has seamlessly integrated Orion's long-standing expertise and product quality into a global network.",
-        logo: "/src/assets/orion_logo.png"
-      },
-      {
-        name: "Zollern",
-        description: "Zollern has a history spanning more than 300 years and is one of Germany's oldest family-owned companies. Renowned for its metal processing and engineering, Zollern was a key player in the plain and tilting pad bearing market. Their hydrodynamic bearings were integral to power generation and various industrial applications. Miba's joint venture with Zollern in 2019 brought together their combined know-how, creating a powerhouse in the industrial bearing sector.",
-        logo: "/src/assets/zollern_logo.webp"
-      },
-      {
-        name: "John Crane",
-        description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
-        logo: "/src/assets/john_crane_logo.jpg"
-      }
-    ],
-    "self-lubricating-bushes": [
-      {
-        name: "Permaglide",
-        description: "Permaglide is a registered trademark of KS Gleitlager, a leading German specialist in high-precision plain bearings. The brand name itself signifies 'permanently low-wear gliding,' highlighting the durability and low-maintenance nature of its products. Permaglide bearings are a preferred choice for their high rigidity, long service life, and excellent emergency running properties in both dry and lubricated applications.",
-        logo: permaglideLogo,
-        size: "h-20 w-auto"
-      }
-    ],
-    "adaptor-sleeves": [
-      {
-        name: "SPCO",
-        description: "Our own range of high-quality adaptor sleeves designed and manufactured to meet the highest industry standards. These components ensure secure bearing mounting and reliable performance in various mechanical assemblies.",
-        logo: "/src/assets/spco-logo-dark.png"
-      }
-    ]
-  };
-
-  // Function to get brands for a specific category
-  const getBrandsForCategory = (categoryId: string): Brand[] => {
-    return brandsData[categoryId] || [];
-  };
-
-  const categoryInfo = categoriesData[category || ""];
-
-  // Sample products data - in a real app, this would come from an API
-  const sampleProducts: Product[] = [
-    {
-      id: "1",
-      name: "Deep Groove Ball Bearing 6205",
-      category: categoryInfo?.name || "Bearings",
-      image: ballbearings,
-      specifications: {
-        "Bore Diameter": "25 mm",
-        "Outer Diameter": "52 mm",
-        "Width": "15 mm",
-        "Dynamic Load Rating": "14.0 kN",
-        "Static Load Rating": "7.8 kN"
-      },
-      description: "High-quality deep groove ball bearing for general industrial applications."
-    },
-    {
-      id: "2",
-      name: "Cylindrical Roller Bearing NU2208",
-      category: categoryInfo?.name || "Bearings",
-      image: rollerbearings,
-      specifications: {
-        "Bore Diameter": "40 mm",
-        "Outer Diameter": "80 mm",
-        "Width": "23 mm",
-        "Dynamic Load Rating": "65.0 kN",
-        "Static Load Rating": "71.0 kN"
-      },
-      description: "Heavy-duty cylindrical roller bearing for high-load applications."
-    },
-    {
-      id: "3",
-      name: "Specialty Grease EP2",
-      category: categoryInfo?.name || "Lubricants",
-      image: cogelsa_lubricants,
-      specifications: {
-        "NLGI Grade": "2",
-        "Base Oil Viscosity": "220 cSt",
-        "Dropping Point": "180°C",
-        "Color": "Brown",
-        "Packaging": "400g Cartridge"
-      },
-      description: "High-performance grease for extreme pressure applications."
     }
-  ];
+    
+    setLoading(false);
+  }, [category, navigate]);
 
-  if (!categoryInfo) {
+  if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-grow pt-24">
-          <div className="container mx-auto px-4 py-16">
-            <div className="text-center">
-              <h1 className="text-2xl font-display font-semibold text-spco-800 mb-4">
-                Category Not Found
-              </h1>
-              <p className="text-neutral-600 mb-8">
-                The category you're looking for doesn't exist.
-              </p>
-              <Link to="/products" className="btn-primary">
-                Browse All Products
-              </Link>
-            </div>
+        <main className="flex-grow pt-24 flex items-center justify-center">
+          <div className="animate-pulse">
+            <div className="h-8 w-32 bg-neutral-200 rounded mb-4"></div>
+            <div className="h-4 w-48 bg-neutral-200 rounded"></div>
           </div>
         </main>
         <Footer />
@@ -316,28 +281,64 @@ const ProductCategoryPage = () => {
     );
   }
 
+  if (!categoryInfo) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow pt-24 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold text-neutral-800 mb-2">Category Not Found</h1>
+            <p className="text-neutral-600 mb-6">The category you are looking for does not exist or has been removed.</p>
+            <a href="/products" className="btn-primary">View All Products</a>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const breadcrumbItems = [
+    { label: "Products", href: "/products" },
+    { label: categoryInfo.name }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="relative bg-spco-800 text-white">
-          <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1507646871303-331b8f659227?q=80&w=2874&auto=format&fit=crop')] bg-cover bg-center"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-spco-900 to-spco-800/70"></div>
+        <section className="relative">
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={categoryInfo.image} 
+              alt={categoryInfo.name} 
+              className="w-full h-full object-cover animate-fade-up"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-spco-900/90 to-spco-800/60"></div>
+          </div>
           
           <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
-            <Breadcrumb items={[
-              { label: "Products", href: "/products" },
-              { label: categoryInfo.name }
-            ]} className="mb-6 text-white/80" />
+            <Breadcrumb 
+              items={breadcrumbItems} 
+              className="mb-6 text-white/80" 
+            />
             
-            <div className="max-w-3xl">
+            <div className="max-w-2xl">
               <h1 className="text-3xl md:text-5xl font-display font-semibold text-white mb-4">
                 {categoryInfo.name}
               </h1>
-              <p className="text-lg text-white/90 mb-6">
+              <p className="text-lg text-white/90 mb-8">
                 {categoryInfo.description}
               </p>
+              <div className="flex flex-wrap gap-3">
+                {/* <a href="#products" className="btn-primary">
+                  Browse Products
+                  <ArrowRight className="h-4 w-4 ml-1" />
+                </a> */}
+                <a href="/contact" className="btn-primary">
+                  Get Technical Support
+                </a> 
+              </div>
             </div>
           </div>
         </section>
@@ -347,50 +348,89 @@ const ProductCategoryPage = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-2xl font-display font-semibold text-spco-800 mb-6">
-                  About {categoryInfo.name}
+                <h2 className="text-2xl md:text-3xl font-display font-semibold text-spco-800 mb-6">
+                  About Our {categoryInfo.name}
                 </h2>
-                <p className="text-neutral-600 mb-6 leading-relaxed">
+                <p className="text-neutral-600 mb-8 text-lg leading-relaxed">
                   {categoryInfo.detailedDescription}
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="text-lg font-medium text-spco-700 mb-3">Key Features</h3>
-                    <ul className="space-y-2">
-                      {categoryInfo.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-accent-500 mr-2">•</span>
-                          <span className="text-neutral-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-accent-500 mb-2 flex justify-center">
+                      <Award className="h-8 w-8" />
+                    </div>
+                    <h3 className="font-semibold text-spco-700 mb-1">Premium Quality</h3>
+                    <p className="text-sm text-neutral-600">Manufactured to highest standards</p>
                   </div>
                   
-                  <div>
-                    <h3 className="text-lg font-medium text-spco-700 mb-3">Applications</h3>
-                    <ul className="space-y-2">
-                      {categoryInfo.applications.map((application, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-accent-500 mr-2">•</span>
-                          <span className="text-neutral-700">{application}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="text-center">
+                    <div className="text-accent-500 mb-2 flex justify-center">
+                      <Shield className="h-8 w-8" />
+                    </div>
+                    <h3 className="font-semibold text-spco-700 mb-1">Reliable Performance</h3>
+                    <p className="text-sm text-neutral-600">Proven in demanding applications</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="text-accent-500 mb-2 flex justify-center">
+                      <Cog className="h-8 w-8" />
+                    </div>
+                    <h3 className="font-semibold text-spco-700 mb-1">Technical Support</h3>
+                    <p className="text-sm text-neutral-600">Expert guidance available</p>
                   </div>
                 </div>
               </div>
               
               <div className="relative">
                 <img 
-                  src={categoryInfo.image} 
-                  alt={categoryInfo.name} 
-                  className="w-full h-auto rounded-lg shadow-lg animate-fade-up"
+                  src={categoryInfo.image}
+                  alt={categoryInfo.name}
+                  className="w-full h-96 object-cover rounded-lg shadow-lg animate-fade-up"
                 />
               </div>
             </div>
           </div>
         </section>
+
+        {/* Features and Applications */}
+        {/* <section className="py-16 bg-neutral-50">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-2xl font-display font-semibold text-spco-800 mb-6">
+                  Key Features
+                </h2>
+                <div className="space-y-4">
+                  {categoryInfo.features.map((feature, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="text-accent-500 mr-3 mt-0.5">
+                        <CheckCircle className="h-5 w-5" />
+                      </div>
+                      <p className="text-neutral-700">{feature}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-display font-semibold text-spco-800 mb-6">
+                  Common Applications
+                </h2>
+                <div className="space-y-4">
+                  {categoryInfo.applications.map((application, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="text-accent-500 mr-3 mt-0.5">
+                        <CheckCircle className="h-5 w-5" />
+                      </div>
+                      <p className="text-neutral-700">{application}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
 
         {/* Brands Section */}
         <section className="py-16 bg-white">
@@ -438,50 +478,51 @@ const ProductCategoryPage = () => {
           </div>
         </section>
 
-        {/* Products Grid */}
-        <section className="py-16 bg-neutral-50">
+        {/* Products Section
+        <section id="products" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="section-title">Our {categoryInfo.name} Products</h2>
+              <h2 className="section-title">Browse Our {categoryInfo.name}</h2>
               <p className="section-subtitle mx-auto">
-                Explore our comprehensive range of high-quality {categoryInfo.name.toLowerCase()} products.
+                Explore our complete range of {categoryInfo.name.toLowerCase()} designed for optimal performance in various applications.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sampleProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            <ProductGrid products={products} />
             
-            <div className="text-center mt-12">
-              <Button asChild size="lg">
-                <Link to="/contact">
-                  Get a Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+            <div className="mt-12 text-center">
+              <a href="/products" className="btn-primary">
+                View All Products
+              </a>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-spco-800 to-spco-700 text-white">
+        {/* Contact Section */}
+        <section className="py-16 bg-spco-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-display font-semibold mb-4">
-                Need Help Choosing the Right {categoryInfo.name}?
+              <h2 className="text-2xl md:text-3xl font-display font-semibold text-spco-800 mb-4">
+                Need Help Selecting the Right {categoryInfo.name}?
               </h2>
-              <p className="text-lg text-white/90 mb-8">
-                Our technical experts are here to help you select the perfect {categoryInfo.name.toLowerCase()} for your specific application requirements.
+              <p className="text-neutral-600 mb-8">
+                Our technical experts are ready to help you find the perfect solution for your specific application requirements.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contact" className="btn-primary">
-                  Contact Our Experts
-                </Link>
-                <Link to="/products" className="btn-outline">
-                  Browse All Products
-                </Link>
+              
+              <div className="flex flex-col md:flex-row justify-center gap-4">
+                {/* <a 
+                  href={`tel:+912212345678`} 
+                  className="btn-primary"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call Technical Support: +91 22 1234 5678
+                </a> */}
+                <a 
+                  href="/contact" 
+                  className="btn-primary"
+                >
+                  Request Technical Consultation
+                </a>
               </div>
             </div>
           </div>
