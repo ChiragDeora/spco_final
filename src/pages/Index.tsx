@@ -1,6 +1,7 @@
 
 import Hero from "@/components/home/Hero";
 import Partners from "@/components/home/Partners";
+import PartnerBrands from "@/components/home/PartnerBrands";
 import ProductCategories from "@/components/home/ProductCategories";
 import Testimonials from "@/components/home/Testimonials";
 import QuickContact from "@/components/home/QuickContact";
@@ -19,9 +20,10 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <PartnerBrands />
         <Partners />
         <ProductCategories />
-        {/* <Testimonials /> */}
+        <Testimonials />
         <QuickContact />
       </main>
       <Footer />

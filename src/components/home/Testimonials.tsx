@@ -1,6 +1,6 @@
 
-import { useState } from "react";
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Testimonials = () => {
@@ -9,29 +9,46 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      content: "SPCO has been our trusted supplier for over 5 years. Their high-quality bearings have significantly reduced our equipment downtime and maintenance costs.",
-      author: "Rajesh Sharma",
+      content: "SPCO has been our trusted partner for industrial bearings and components. Their commitment to quality and timely delivery has significantly improved our operational efficiency.",
+      author: "Kumar Manu",
       title: "Procurement Manager",
-      company: "Tata Steel Limited",
+      company: "ABC Industries",
       rating: 5
     },
     {
       id: 2,
-      content: "The technical expertise and product knowledge of the SPCO team is exceptional. They helped us find the perfect solution for our specialized manufacturing equipment.",
-      author: "Priya Patel",
-      title: "Maintenance Engineer",
-      company: "Mahindra Heavy Industries",
+      content: "The technical expertise and product knowledge of the SPCO team is exceptional. They have consistently provided us with reliable solutions for our heavy machinery requirements.",
+      author: "Engineering Team",
+      title: "Maintenance Department",
+      company: "JSW Steel",
       rating: 5
     },
     {
       id: 3,
-      content: "SPCO's quick response time and reliable delivery has made them our go-to supplier for all bearing needs. Their product quality is consistently excellent.",
-      author: "Vikram Singh",
-      title: "Operations Director",
-      company: "Larsen & Toubro",
+      content: "SPCO's professional approach and high-quality products have made them our preferred supplier. Their support team is always ready to help with technical guidance.",
+      author: "Shrivastav Sir",
+      title: "Technical Director",
+      company: "IOCL",
+      rating: 5
+    },
+    {
+      id: 4,
+      content: "We have been working with SPCO for several years and their products have consistently met our quality standards. Their service and support are exemplary.",
+      author: "Operations Team",
+      title: "Production Department",
+      company: "RCF",
       rating: 5
     }
   ];
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+    }, 5000); // Change testimonial every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
@@ -70,11 +87,11 @@ const Testimonials = () => {
                         : "opacity-0 translate-x-full z-10"
                   )}
                 >
-                  <div className="flex items-center mb-4">
+                  {/* <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                     ))}
-                  </div>
+                  </div> */}
 
                   <p className="text-lg text-neutral-700 italic mb-6">
                     "{testimonial.content}"
@@ -114,16 +131,18 @@ const Testimonials = () => {
               ))}
             </div>
 
-            {/* Arrow Controls */}
+            {/* Arrow Controls - Fixed positioning */}
             <button
-              className="absolute -left-16 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-3 rounded-full text-neutral-700 hover:text-spco-600 hover:shadow-lg transition-custom hidden lg:block"
+              className="absolute -left-12 top-[30%] transform -translate-y-1/2 bg-white shadow-lg p-3 rounded-full text-neutral-700 hover:text-spco-600 hover:shadow-xl transition-all duration-300 z-30"
+              style={{ left: '-6rem' }}
               onClick={handlePrev}
               aria-label="Previous testimonial"
             >
               <ArrowLeft className="h-5 w-5" />
             </button>
             <button
-              className="absolute -right-16 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-3 rounded-full text-neutral-700 hover:text-spco-600 hover:shadow-lg transition-custom hidden lg:block"
+              className="absolute -right-12 top-[30%] transform -translate-y-1/2 bg-white shadow-lg p-3 rounded-full text-neutral-700 hover:text-spco-600 hover:shadow-xl transition-all duration-300 z-30"
+              style={{ right: '-6rem' }}
               onClick={handleNext}
               aria-label="Next testimonial"
             >

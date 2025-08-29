@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowRight, Facebook, Twitter, LinkedinIcon } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, LinkedinIcon } from "lucide-react";
 import spcoLogoWhite from '@/assets/SPCO-Logo-white.png';
 const Footer = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={spcoLogoWhite} alt="SPCO" className="h-6 w-auto animate-fade-up" />
             </div>
             <p className="text-neutral-300 text-sm">
-              Leading distributor of premium hardware components, providing quality bearings, lubricants and hardware supplies to industries across India.
+              For over five decades, SPCO has built trust and quality, forging lasting bonds with clients, suppliers, employees, and partners.
             </p>
             <div className="flex space-x-3">
               <a href="https://www.linkedin.com/company/spares-&-components-co---india/" target="_blank" rel="noopener noreferrer" className="bg-spco-700 hover:bg-spco-600 px-3 py-2 rounded-full transition-custom flex items-center gap-2">
@@ -90,11 +90,11 @@ const Footer = () => {
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 text-accent-500 mr-3 flex-shrink-0" />
-                <span className="text-neutral-300">+91 22 1234 5678</span>
+                <span className="text-neutral-300">+91 8928385886</span>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-accent-500 mr-3 flex-shrink-0" />
-                <span className="text-neutral-300">info@spco-hardware.com</span>
+                <span className="text-neutral-300">sales1@spco.in</span>
               </li>
             </ul>
           </div>

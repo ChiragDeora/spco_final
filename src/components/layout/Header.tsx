@@ -1,9 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import SearchBar from '../common/SearchBar';
 import spcoLogoBlack from '@/assets/SPCO-Logo-Black.png';
 
 const Header = () => {
@@ -21,28 +20,32 @@ const Header = () => {
   }, []);
 
   const isActive = (path: string) => {
+    // Special case for Products tab - only highlight when on specific product category pages
+    if (path === '/products') {
+      return location.pathname.startsWith('/products/') && location.pathname !== '/products';
+    }
     return location.pathname === path;
+  };
+
+  const isShopActive = () => {
+    return location.pathname === '/products';
   };
 
   const navigation = [
     { name: 'Home', href: '/' },
     { 
       name: 'Products', 
-      // href: '/products',
-      href: '/coming-soon',
+      href: '/products',
       submenu: [
-        // { name: 'Ball Bearings', href: '/products/ball-bearings' },
-        // { name: 'Roller Bearings', href: '/products/roller-bearings' },
-        // { name: 'Lubricants', href: '/products/lubricants' },
-        // { name: 'Auto Parts', href: '/products/Auto Parts' },
-        // { name: 'Bushes', href: '/products/Bushes' },
-        { name: 'Ball Bearings', href: '/coming-soon' },
-        { name: 'Roller Bearings', href: '/coming-soon' },
-        { name: 'Lubricants', href: '/coming-soon' },
-        { name: 'Auto Parts', href: '/coming-soon' },
-        { name: 'Bushes', href: '/coming-soon' },
+        { name: 'Bearings', href: '/products/bearings' },
+        { name: 'Speciality Lubricants', href: '/products/speciality-lubricants' },
+        { name: 'Automotive Parts', href: '/products/automotive-parts' },
+        { name: 'Journal & Tilting Pad Bearings', href: '/products/journal-tilting-pad-bearings' },
+        { name: 'Self Lubricating Bushes', href: '/products/self-lubricating-bushes' },
+        { name: 'Adaptor Sleeves', href: '/products/adaptor-sleeves' },
       ]
     },
+    // { name: 'Shop', href: '/products' },
     // { 
     //   name: 'Industries', 
     //   href: '/industries',
@@ -92,7 +95,9 @@ const Header = () => {
                     to={item.href}
                     className={cn(
                       'py-2 px-3 rounded-md text-sm font-medium transition-custom',
-                      isActive(item.href) ? 'text-accent-500' : 'text-neutral-700 hover:text-spco-600 hover:bg-neutral-50'
+                      item.name === 'Shop' 
+                        ? (isShopActive() ? 'text-accent-500' : 'text-neutral-700 hover:text-spco-600 hover:bg-neutral-50')
+                        : (isActive(item.href) ? 'text-accent-500' : 'text-neutral-700 hover:text-spco-600 hover:bg-neutral-50')
                     )}
                   >
                     {item.name}
@@ -194,7 +199,9 @@ const Header = () => {
                     to={item.href}
                     className={cn(
                       'block py-3 px-4 rounded-md',
-                      isActive(item.href) ? 'bg-neutral-100 text-spco-700' : 'text-neutral-700 hover:bg-neutral-50'
+                      item.name === 'Shop'
+                        ? (isShopActive() ? 'bg-neutral-100 text-spco-700' : 'text-neutral-700 hover:bg-neutral-50')
+                        : (isActive(item.href) ? 'bg-neutral-100 text-spco-700' : 'text-neutral-700 hover:bg-neutral-50')
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >

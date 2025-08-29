@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import journalLogo from "@/assets/journal_and_tilting_pad_logo.jpg";
+import adapterSleevesLogo from "@/assets/adapter-sleeves_logo.jpg";
 
 export interface Product {
   id: string;
@@ -42,6 +44,26 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
             {category}
           </span>
         </div>
+        {/* Journal Logo for Journal & Tilting Pad Bearings */}
+        {category === "Journal & Tilting Pad Bearings" && (
+          <div className="absolute bottom-3 right-3">
+            <img
+              src={journalLogo}
+              alt="Journal & Tilting Pad Logo"
+              className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+            />
+          </div>
+        )}
+        {/* Adapter Sleeves Logo for Adaptor Sleeves */}
+        {category === "Adaptor Sleeves" && (
+          <div className="absolute bottom-3 right-3">
+            <img
+              src={adapterSleevesLogo}
+              alt="Adapter Sleeves Logo"
+              className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+            />
+          </div>
+        )}
       </div>
       
       <div className="p-5">

@@ -2,9 +2,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import ballbearings from '@/assets/ballbearings.jpg';
-import rollerbearings from '@/assets/rollerbearings.jpg';
-import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
+import journalLogo from '@/assets/journal_and_tilting_pad_logo.jpg';
+import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
+import lubricant_homePage from '@/assets/lubricant_homePage.jpg';
 import AutoParts from '@/assets/Autoparts.jpg';  
 import Bushes from '@/assets/Bushes.jpg';
 
@@ -19,44 +21,46 @@ interface Category {
 const ProductCategories = () => {
   const categories: Category[] = [
     {
-      id: "ball-bearings",
-      name: "Ball Bearings",
-      description: "Precision engineered ball bearings for reduced friction and smooth operation.",
+      id: "bearings",
+      name: "Bearings",
+      description: "Comprehensive range of precision bearings including ball, roller, and specialized bearings for industrial applications.",
       src: ballbearings,
-      // link: "/products/ball-bearings"
-      link: "/coming-soon"
+      link: "/products/bearings"
     },
     {
-      id: "roller-bearings",
-      name: "Roller Bearings",
-      description: "Heavy-duty roller bearings designed for superior load capacity and durability.",
-      src: rollerbearings,
-      // link: "/products/roller-bearings"
-      link: "/coming-soon"
+      id: "speciality-lubricants",
+      name: "Speciality Lubricants",
+      description: "High-performance specialty lubricants formulated for specific applications and extreme operating conditions.",
+      src: lubricant_homePage,
+      link: "/products/speciality-lubricants"
     },
     {
-      id: "lubricants",
-      name: "Lubricants",
-      description: "High-performance lubricants that extend component life and reduce maintenance.",
-      src: cogelsa_lubricants,
-      // link: "/products/lubricants"
-      link: "/coming-soon"
-    },
-    {
-      id: "Auto Parts",
-      name: "Auto Parts",
-      description: "Industrial Auto Parts that prevent contamination and retain lubricant in critical systems.",
+      id: "automotive-parts",
+      name: "Automotive Parts",
+      description: "Quality automotive components and parts designed for reliability and performance in vehicle applications.",
       src: AutoParts,
-      // link: "/products/Auto Parts"
-      link: "/coming-soon"
+      link: "/products/automotive-parts"
     },
     {
-      id: "Bushes",
-      name: "Bushes",
-      description: "Specialized Bushes for proper installation and maintenance of bearings and related components.",
+      id: "journal-tilting-pad-bearings",
+      name: "Journal & Tilting Pad Bearings",
+      description: "Advanced journal and tilting pad bearings for high-speed, high-load applications in critical machinery.",
+      src: journalLogo,
+      link: "/products/journal-tilting-pad-bearings"
+    },
+    {
+      id: "self-lubricating-bushes",
+      name: "Self Lubricating Bushes",
+      description: "Self-lubricating bushings that provide continuous lubrication without external maintenance requirements.",
       src: Bushes,
-      // link: "/products/Bushes"
-      link: "/coming-soon"
+      link: "/products/self-lubricating-bushes"
+    },
+    {
+      id: "adaptor-sleeves",
+      name: "Adaptor Sleeves",
+      description: "Precision adaptor sleeves for secure bearing mounting and proper shaft-to-bore connections.",
+      src: adapterSleevesLogo,
+      link: "/products/adaptor-sleeves"
     }
   ];
 
@@ -70,7 +74,7 @@ const ProductCategories = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-12">
           {categories.map((category) => (
             <Link key={category.id} to={category.link} className="group">
               <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 h-full">
@@ -102,14 +106,14 @@ const ProductCategories = () => {
           ))}
         </div>
 
-        {/* <div className="text-center">
+        <div className="text-center">
           <Button asChild size="lg">
             <Link to="/products">
               View All Products
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </Button>
-        </div> */}
+        </div>
       </div>
     </section>
   );

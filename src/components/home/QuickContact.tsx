@@ -30,8 +30,8 @@ const QuickContact = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-white">Call Us</h3>
-                  <p className="mt-1 text-neutral-300">+91 22 1234 5678</p>
-                  <p className="mt-1 text-neutral-300">Mon-Fri, 9am-6pm IST</p>
+                  <p className="mt-1 text-neutral-300">+91 8928385886</p>
+                  <p className="mt-1 text-neutral-300">Mon-Sat, 10am-7pm IST</p>
                 </div>
               </div>
               
@@ -43,7 +43,7 @@ const QuickContact = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-white">Email Us</h3>
-                  <p className="mt-1 text-neutral-300">info@spco-hardware.com</p>
+                  <p className="mt-1 text-neutral-300">sales1@spco.in</p>
                   <p className="mt-1 text-neutral-300">We'll respond within 24 hours</p>
                 </div>
               </div>

@@ -50,9 +50,9 @@ const Contact = () => {
                         <MapPin className="h-5 w-5 text-spco-600" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-spco-700 mb-1">Address</h3>
+                        <h3 className="font-medium text-spco-700 mb-1">Address (Head Office)</h3>
                         <p className="text-neutral-600">
-                          SPCO Headquarters<br />
+                          Spares & Components Co. Pvt. Ltd.<br />
                           109,110 Prestige Industrial Estate<br />
                           Orlem, Malad West, Mumbai - 400064<br />
                           Maharashtra, India
@@ -65,11 +65,10 @@ const Contact = () => {
                         <Phone className="h-5 w-5 text-spco-600" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-spco-700 mb-1">Phone</h3>
+                        <h3 className="font-medium text-spco-700 mb-1">Contact</h3>
                         <p className="text-neutral-600">
-                          Main: +91 22 1234 5678<br />
-                          Sales: +91 22 8765 4321<br />
-                          Technical Support: +91 22 2468 1357
+                          Head Office: +91 8928385886<br />
+                          Sales: sales1@spco.in
                         </p>
                       </div>
                     </div>
@@ -81,9 +80,8 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium text-spco-700 mb-1">Email</h3>
                         <p className="text-neutral-600">
-                          General Inquiries: info@spco-hardware.com<br />
-                          Sales: sales@spco-hardware.com<br />
-                          Technical Support: support@spco-hardware.com
+                          Sales: sales1@spco.in<br />
+                          General Inquiries: info@spco.in
                         </p>
                       </div>
                     </div>
@@ -95,8 +93,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium text-spco-700 mb-1">Business Hours</h3>
                         <p className="text-neutral-600">
-                          Monday - Friday: 9:00 AM - 6:00 PM<br />
-                          Saturday: 9:00 AM - 1:00 PM<br />
+                          Monday - Saturday: 10:00 AM - 7:00 PM<br />
                           Sunday: Closed
                         </p>
                       </div>

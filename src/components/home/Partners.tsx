@@ -1,43 +1,37 @@
 
-// Import partner logos
-import ntnLogo from '@/assets/ntn.png';
-import mibaLogo from '@/assets/Miba.png';
-import rbcBearingsLogo from '@/assets/rbc_bearings.png';
-import zenLogo from '@/assets/zen.png';
-import cogelsaLogo from '@/assets/cogelsa.png';
-import rheinmetallLogo from '@/assets/Rheinmetall.png';
+// Import customer logos
+import bhelLogo from '@/assets/bhel.avif';
+import tataLogo from '@/assets/tata.png';
+import ioclLogo from '@/assets/iocl_logo.png';
+import indianRailwaysLogo from '@/assets/indian_railways_logo.webp';
+import jswLogo from '@/assets/JSW_logo.png';
 
 const Partners = () => {
-  const partners = [
+  const customers = [
     {
-      name: "NTN",
-      src: ntnLogo,
-      size: "h-40 w-auto"
+      name: "JSW",
+      src: jswLogo,
+      size: "h-28 w-auto" // Increased from h-20
     },
     {
-      name: "Miba",
-      src: mibaLogo,
-      size: "h-20 w-auto"
+      name: "Indian Railways",
+      src: indianRailwaysLogo,
+      size: "h-32 w-auto" // Increased from h-70 (which was invalid)
     },
     {
-      name: "RBC Bearings",
-      src: rbcBearingsLogo,
-      size: "h-20 w-auto"
+      name: "BHEL",
+      src: bhelLogo,
+      size: "h-24 w-auto" // Increased from h-20
     },
     {
-      name: "Zen",
-      src: zenLogo,
-      size: "h-20 w-auto"
+      name: "TATA",
+      src: tataLogo,
+      size: "h-26 w-auto" // Increased from h-20
     },
     {
-      name: "Cogelsa",
-      src: cogelsaLogo,
-      size: "h-20 w-auto"
-    },
-    {
-      name: "Rheinmetall",
-      src: rheinmetallLogo,
-      size: "h-auto w-auto"
+      name: "IOCL",
+      src: ioclLogo,
+      size: "h-30 w-auto" // Increased from h-80 (which was invalid)
     }
   ];
 
@@ -45,22 +39,22 @@ const Partners = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="section-title">Our Partner Brands</h2>
+          <h2 className="section-title">Our esteemed customers</h2>
           <p className="section-subtitle mx-auto">
-            We partner with the world's leading manufacturers to bring you the highest quality hardware components.
+            We are proud to serve leading companies across various industries with our high-quality hardware components.
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-          {partners.map((partner, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+          {customers.map((customer, index) => (
             <div 
               key={index} 
-              className="bg-white p-6 rounded-lg border border-neutral-100 shadow-sm hover:shadow-md transition-custom flex items-center justify-center h-32"
+              className="bg-white p-8 rounded-lg border border-neutral-100 shadow-sm hover:shadow-md transition-custom flex items-center justify-center h-56"
             >
               <img 
-                src={partner.src} 
-                alt={partner.name} 
-                className={`${partner.size} object-contain opacity-80 hover:opacity-100 transition-custom animate-fade-up`}
+                src={customer.src} 
+                alt={customer.name} 
+                className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom animate-fade-up`}
               />
             </div>
           ))}

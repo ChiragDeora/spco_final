@@ -4,32 +4,14 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import spcoAboutus from '@/assets/aboutus.png';
 import { CheckCircle, MapPin, Award, Users, TrendingUp, BarChart3 } from "lucide-react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+
 const About = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
-  const timeline = [{
-    year: "1995",
-    title: "Company Founded",
-    description: "SPCO was established in Mumbai as a small hardware distributor focused on the local market."
-  }, {
-    year: "2002",
-    title: "Expansion of Product Range",
-    description: "Expanded product portfolio to include a comprehensive range of bearings and related components."
-  }, {
-    year: "2008",
-    title: "Technical Support Team",
-    description: "Established a dedicated technical support team to provide specialized assistance to customers."
-  }, {
-    year: "2015",
-    title: "New Headquarters",
-    description: "Moved to a larger headquarters with expanded warehousing and logistics capabilities."
-  }, {
-    year: "2020",
-    title: "Digital Transformation",
-    description: "Implemented advanced digital systems for inventory management and customer service."
-  }];
+  
   return <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow pt-24">
@@ -48,7 +30,7 @@ const About = () => {
                 About SPCO
               </h1>
               <p className="text-lg text-white/90 mb-6">
-                 In India's competitive market we have established our selves over the last 36 years as an organization that can be trusted for quality & service. at SPCO we value relationships above all else; with clients, suppliers, employees and partners alike.
+                In the dynamic and competitive landscape of India, we have built a legacy of trust and quality over the last five decades. SPCO stands for more than just products; it represents a commitment to enduring relationships. We believe that our success is built on the strong bonds we forge with our clients, suppliers, employees, and partners.
               </p>
             </div>
           </div>
@@ -66,19 +48,25 @@ const About = () => {
                   A Legacy of Quality and Reliability
                 </h2>
                 <p className="text-neutral-600 mb-6">
-                  Founded in 1989 by Mr. Sudhir Deora, Spares & Components Co. Pvt. Ltd. (SPCO) began as a small supplier of needle roller bearings to local companies. Through focused vision and deep industry knowledge, Mr. Deora steadily expanded the business into general and specialty anti-friction bearings, earning a strong reputation for precision and reliability.
+                  At SPCO, we're not just looking back at our five decades of success; we're focused on building an even stronger future. Our journey began in 1989 when Mr. Sudhir Deora founded the company to supply needle roller bearings. Through his vision and deep industry knowledge, we steadily built a reputation for precision and reliability, growing into one of India's largest stockists and distributors.
                 </p>
                 <p className="text-neutral-600 mb-6">
-                  Over time, SPCO grew into one of India's largest stockists and distributors of bearings, bushes, and specialty lubricants. With a head office and master warehouse in Mumbai and branches in Jaipur, Nasik, Chennai, Jamshedpur, and Pune, we now serve a broad industrial clientele nationwide.
+                  Today, with our master warehouse in Mumbai, we are poised for the next phase of our growth. Our vision is to become the single largest point of distribution for highly engineered, long lead time products in India. We are committed to this future by continuously expanding our portfolio to offer comprehensive solutions that power industrial growth.
                 </p>
                 <p className="text-neutral-600">
-                  Our foundation is built on trust, technical expertise, and a deep commitment to customer satisfaction. As we continue to expand our reach and product offerings, we remain rooted in the values that shaped us from the beginning—precision, partnership, and performance.
+                  Our product lines — including Bearings, Speciality Lubricants, Automotive Parts, Journal & Tilting Pad Bearings, Self-Lubricating Bushes, and Adaptor Sleeves — are not just components; they are critical solutions that enable our customers to innovate and succeed. We remain rooted in our founding values of precision, partnership, and performance, ensuring SPCO is synonymous with reliability and expertise for years to come.
                 </p>
               </div>
               
               <div className="relative lg:h-[500px]">
                 <div className="">
-                  <img src={spcoAboutus} alt="SPCO Headquarters" className="w-full h-full object-contain animate-fade-up" />
+                  <OptimizedImage 
+                    src={spcoAboutus} 
+                    alt="SPCO Headquarters" 
+                    className="w-full h-full object-contain animate-fade-up"
+                    priority={true}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg border border-neutral-100">
                   <div className="flex items-center gap-3">
@@ -127,7 +115,7 @@ const About = () => {
                   Our Vision
                 </h3>
                 <p className="text-neutral-600">
-                To be India’s most trusted and comprehensive industrial distribution partner, recognized for our integrity, technical excellence, and relentless commitment to customer satisfaction in every bearing, bush, and lubricant we deliver.
+                To be India's most trusted and comprehensive industrial distribution partner, recognized for our integrity, technical excellence, and relentless commitment to customer satisfaction in every bearing, bush, and lubricant we deliver.
                 </p>
               </div>
               
@@ -161,8 +149,9 @@ const About = () => {
           </div>
         </section>
 
-        {/* Company Timeline */}
-        {/* <section className="py-16 bg-white">
+        {/* Company Timeline - Commented out */}
+        {/*
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="section-title">Our Journey</h2>
@@ -171,14 +160,13 @@ const About = () => {
               </p>
             </div>
             
-            <div className="relative"> */}
-              {/* Vertical line */}
-              {/* <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-neutral-200"></div>
+            <div className="relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-neutral-200"></div>
               
               <div className="space-y-12">
-                {timeline.map((item, index) => <div key={index} className="relative"> */}
-                    {/* Timeline dot */}
-                    {/* <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent-500 border-4 border-white"></div>
+                {timeline.map((item, index) => (
+                  <div key={index} className="relative"> 
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent-500 border-4 border-white"></div>
                     
                     <div className={`flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                       <div className="md:w-1/2"></div>
@@ -196,97 +184,82 @@ const About = () => {
                         </div>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
+        */}
 
-        {/* Facilities and Infrastructure */}
-        {/* <section className="py-16 bg-neutral-50">
+        {/* Facilities and Capabilities */}
+        <section className="py-16 bg-neutral-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="section-title">Our Facilities & Capabilities</h2>
+              <h2 className="section-title">Facilities & Capabilities</h2>
               <p className="section-subtitle mx-auto">
-                SPCO's state-of-the-art infrastructure enables us to deliver reliable service and timely solutions.
+                Our comprehensive infrastructure and expertise enable us to deliver exceptional value to our customers.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <BarChart3 className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Advanced Warehouse Management</h3>
-                      <p className="text-neutral-600">
-                        Our 25,000 sq. ft. warehouse facility employs digital inventory management systems for efficient stock handling and order fulfillment.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Quality Control Lab</h3>
-                      <p className="text-neutral-600">
-                        Our in-house quality control laboratory ensures that all products meet the highest standards before they reach our customers.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <Users className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Technical Support Center</h3>
-                      <p className="text-neutral-600">
-                        Our technical team provides expert support and solutions, with a combined experience of over 100 years in the industry.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
-                      <Award className="h-5 w-5 text-spco-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-spco-700 mb-1">Distribution Network</h3>
-                      <p className="text-neutral-600">
-                        With distribution centers in key locations across India, we can deliver products efficiently to customers nationwide.
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Team & Expertise */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <Users className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Team & Expertise</h3>
+                  <p className="text-neutral-600">
+                    With a dedicated team of over 50 professionals, our strength lies in our deep industry knowledge and technical expertise. We don't simply supply products; we provide comprehensive solutions by understanding and addressing our customers' unique challenges.
+                  </p>
                 </div>
               </div>
               
-              <div className="order-1 lg:order-2">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1630569470960-ec1e8c073b13?q=80&w=2069&auto=format&fit=crop" alt="SPCO Warehouse" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1556221430-4dd6d1b1f9c1?q=80&w=2070&auto=format&fit=crop" alt="Quality Control Lab" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=2070&auto=format&fit=crop" alt="Technical Support" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
-                  <div className="rounded-lg overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Distribution" className="w-full h-full object-cover aspect-square animate-fade-up" />
-                  </div>
+              {/* Advanced Infrastructure */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <BarChart3 className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Advanced Infrastructure</h3>
+                  <p className="text-neutral-600">
+                    Our fully equipped, state-of-the-art warehouse spans over 25,000 sq ft, ensuring efficient inventory management and swift dispatch of products. This robust infrastructure allows us to maintain a vast stock of critical components and meet the demands of a diverse industrial clientele.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Solution-Oriented Services */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <CheckCircle className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Solution-Oriented Services</h3>
+                  <p className="text-neutral-600">
+                    We go beyond standard product distribution by offering specialized services. Our team provides tailored lubrication solutions designed for specific applications and offers detailed failure analysis services to identify root causes and prevent future issues, enhancing operational reliability.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Technical Training & Support */}
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 bg-spco-50 p-3 rounded-full h-12 w-12 flex items-center justify-center">
+                  <Award className="h-5 w-5 text-spco-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-spco-700 mb-1">Technical Training & Support</h3>
+                  <p className="text-neutral-600">
+                    We empower our clients with knowledge through dedicated technical training programs. These sessions are designed to give your team a better understanding of products and their applications, equipping them to handle real-life situations more effectively and make informed decisions on the plant floor.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Team (Placeholder) */}
-        {/* <section className="py-16 bg-white">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="section-title">Our Leadership Team</h2>
@@ -295,26 +268,51 @@ const About = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[1, 2, 3, 4].map(i => <div key={i} className="bg-white rounded-lg overflow-hidden shadow-sm border border-neutral-100 card-hover">
-                  <div className="aspect-square bg-neutral-100">
-                    <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'men' : 'women'}/${i + 10}.jpg`} alt="Team member" className="w-full h-full object-cover" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Sudhir Deora */}
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-neutral-100 card-hover">
+                {/* <div className="aspect-[3/2] bg-gradient-to-br from-spco-50 to-spco-100 flex items-center justify-center">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="Sudhir Deora" className="w-full h-full object-cover" />
+                  <div className="w-24 h-24 bg-spco-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-3xl font-bold">SD</span>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-display font-semibold text-spco-700">
-                      {i === 1 ? 'Raj Mehta' : i === 2 ? 'Priya Sharma' : i === 3 ? 'Vikram Desai' : 'Anjali Patel'}
-                    </h3>
-                    <p className="text-accent-500 font-medium text-sm mb-3">
-                      {i === 1 ? 'CEO & Founder' : i === 2 ? 'Technical Director' : i === 3 ? 'Operations Manager' : 'Sales Director'}
-                    </p>
-                    <p className="text-neutral-600 text-sm">
-                      {i === 1 ? 'Raj has 25+ years of experience in the hardware industry and founded SPCO in 1995.' : i === 2 ? 'Priya leads our technical team with expertise in bearing applications across industries.' : i === 3 ? 'Vikram ensures efficient operations and logistics for timely product delivery.' : 'Anjali develops strategic relationships with customers and partners.'}
-                    </p>
+                </div> */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-display font-semibold text-spco-700 mb-2">
+                    Sudhir Deora
+                  </h3>
+                  <p className="text-accent-500 font-medium text-base mb-4">
+                    Managing Director
+                  </p>
+                  <p className="text-neutral-600 text-base leading-relaxed">
+                    Four decades earlier, we started Spares & Components Co. (SPCO) to be a reliable partner for India's industrial sector. We're proud to have grown into a leading distribution company, and our mission is to become the single largest source for highly engineered, long lead time products. Thank you for your continued trust in us.
+                  </p>
+                </div>
+              </div>
+
+              {/* Rajesh Deora */}
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-neutral-100 card-hover">
+                {/* <div className="aspect-[3/2] bg-gradient-to-br from-spco-50 to-spco-100 flex items-center justify-center">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" alt="Rajesh Deora" className="w-full h-full object-cover" />
+                  <div className="w-24 h-24 bg-spco-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-3xl font-bold">RD</span>
                   </div>
-                </div>)}
+                </div> */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-display font-semibold text-spco-700 mb-2">
+                    Rajesh Deora
+                  </h3>
+                  <p className="text-accent-500 font-medium text-base mb-4">
+                    Managing Director
+                  </p>
+                  <p className="text-neutral-600 text-base leading-relaxed">
+                    Building SPCO has been a remarkable journey, driven by our commitment to our customers and our belief that their success is our success. We are dedicated to providing expert solutions and high-quality components. We look forward to continuing to serve you and the industry for many years to come.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* CTA */}
         <section className="py-16 bg-gradient-to-r from-spco-800 to-spco-700 text-white">
@@ -325,9 +323,9 @@ const About = () => {
                 Experience the SPCO difference with our premium products and expert technical support.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                {/* <a href="/products" className="btn-primary">
+                <a href="/products" className="btn-primary">
                   Browse Products
-                </a> */}
+                </a>
                 <a href="/contact" className="btn-primary">
                   Contact Us
                 </a>

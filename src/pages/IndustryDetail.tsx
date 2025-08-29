@@ -262,11 +262,11 @@ const IndustryDetail = () => {
               
               <div className="flex flex-col md:flex-row justify-center gap-4">
                 <a 
-                  href={`tel:+912212345678`} 
+                  href={`tel:+91 8928385886`} 
                   className="btn-primary"
                 >
                   <Phone className="h-4 w-4" />
-                  Call Now: +91 22 1234 5678
+                  Call Now: +91 8928385886
                 </a>
                 <a 
                   href="/contact" 

@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { Product } from "./ProductCard";
 import ProductCard from "./ProductCard";
-import { Link } from "react-router-dom";
 import { Download, Share, Mail, Phone, FileText, ShoppingCart } from "lucide-react";
 import ContactForm from "../common/ContactForm";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import journalLogo from "@/assets/journal_and_tilting_pad_logo.jpg";
+import adapterSleevesLogo from "@/assets/adapter-sleeves_logo.jpg";
 
 interface ProductDetailProps {
   product: Product;
@@ -29,12 +30,32 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
       <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Product Image */}
-          <div className="p-8 bg-neutral-50 flex items-center justify-center">
+          <div className="p-8 bg-neutral-50 flex items-center justify-center relative">
             <img
               src={product.image}
               alt={product.name}
               className="max-w-full max-h-[400px] object-contain animate-fade-up"
             />
+            {/* Journal Logo for Journal & Tilting Pad Bearings */}
+            {product.category === "Journal & Tilting Pad Bearings" && (
+              <div className="absolute top-4 right-4">
+                <img
+                  src={journalLogo}
+                  alt="Journal & Tilting Pad Logo"
+                  className="h-12 w-12 object-contain rounded-full bg-white p-2 shadow-md"
+                />
+              </div>
+            )}
+            {/* Adapter Sleeves Logo for Adaptor Sleeves */}
+            {product.category === "Adaptor Sleeves" && (
+              <div className="absolute top-4 right-4">
+                <img
+                  src={adapterSleevesLogo}
+                  alt="Adapter Sleeves Logo"
+                  className="h-12 w-12 object-contain rounded-full bg-white p-2 shadow-md"
+                />
+              </div>
+            )}
           </div>
 
           {/* Product Info */}

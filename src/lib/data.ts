@@ -206,6 +206,134 @@ export const products: Product[] = [
       "Weight": "0.3 kg"
     },
     description: "Precision thrust ball bearing designed specifically for applications with high axial loads."
+  },
+  {
+    id: "journal-bearing-jb-100",
+    name: "Journal Bearing JB-100",
+    category: "Journal & Tilting Pad Bearings",
+    subcategory: "Journal Bearings",
+    image: "https://images.unsplash.com/photo-1628574668002-83c074c7588c?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "100 mm",
+      "Length": "80 mm",
+      "Load Capacity": "50 kN",
+      "Maximum Speed": "3000 rpm",
+      "Operating Temperature": "-20°C to 120°C",
+      "Material": "Babbitt-lined steel"
+    },
+    description: "High-performance journal bearing designed for heavy-duty industrial applications with excellent load-carrying capacity."
+  },
+  {
+    id: "tilting-pad-bearing-tpb-150",
+    name: "Tilting Pad Bearing TPB-150",
+    category: "Journal & Tilting Pad Bearings",
+    subcategory: "Tilting Pad Bearings",
+    image: "https://images.unsplash.com/photo-1628574667142-bb27bbc56a6e?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "150 mm",
+      "Number of Pads": "5",
+      "Load Capacity": "120 kN",
+      "Maximum Speed": "5000 rpm",
+      "Operating Temperature": "-40°C to 150°C",
+      "Material": "Steel with Babbitt overlay"
+    },
+    description: "Advanced tilting pad bearing with multiple pivoted pads for high-speed, high-load applications in critical machinery."
+  },
+  {
+    id: "journal-bearing-jb-200",
+    name: "Journal Bearing JB-200",
+    category: "Journal & Tilting Pad Bearings",
+    subcategory: "Journal Bearings",
+    image: "https://images.unsplash.com/photo-1626252653585-5d490ddc04b6?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "200 mm",
+      "Length": "160 mm",
+      "Load Capacity": "200 kN",
+      "Maximum Speed": "2000 rpm",
+      "Operating Temperature": "-30°C to 140°C",
+      "Material": "Bronze with Babbitt lining"
+    },
+    description: "Large journal bearing for heavy industrial applications requiring exceptional stability and load support."
+  },
+  {
+    id: "tilting-pad-bearing-tpb-80",
+    name: "Tilting Pad Bearing TPB-80",
+    category: "Journal & Tilting Pad Bearings",
+    subcategory: "Tilting Pad Bearings",
+    image: "https://images.unsplash.com/photo-1585909695284-32d2985ac9c0?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "80 mm",
+      "Number of Pads": "4",
+      "Load Capacity": "60 kN",
+      "Maximum Speed": "8000 rpm",
+      "Operating Temperature": "-50°C to 180°C",
+      "Material": "Steel with polymer coating"
+    },
+    description: "Compact tilting pad bearing optimized for high-speed applications with excellent thermal stability."
+  },
+  {
+    id: "adaptor-sleeve-as-25",
+    name: "Adaptor Sleeve AS-25",
+    category: "Adaptor Sleeves",
+    subcategory: "Standard Adaptor Sleeves",
+    image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "25 mm",
+      "Outer Diameter": "35 mm",
+      "Length": "30 mm",
+      "Material": "Hardened Steel",
+      "Surface Finish": "Ra 0.8 μm",
+      "Tolerance": "H7"
+    },
+    description: "Precision adaptor sleeve for secure bearing mounting on cylindrical shafts with excellent dimensional accuracy."
+  },
+  {
+    id: "adaptor-sleeve-as-40",
+    name: "Adaptor Sleeve AS-40",
+    category: "Adaptor Sleeves",
+    subcategory: "Standard Adaptor Sleeves",
+    image: "https://images.unsplash.com/photo-1628574668002-83c074c7588c?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "40 mm",
+      "Outer Diameter": "52 mm",
+      "Length": "45 mm",
+      "Material": "Hardened Steel",
+      "Surface Finish": "Ra 0.8 μm",
+      "Tolerance": "H7"
+    },
+    description: "Heavy-duty adaptor sleeve designed for industrial applications requiring reliable bearing mounting."
+  },
+  {
+    id: "adaptor-sleeve-as-60",
+    name: "Adaptor Sleeve AS-60",
+    category: "Adaptor Sleeves",
+    subcategory: "Heavy Duty Adaptor Sleeves",
+    image: "https://images.unsplash.com/photo-1626252653585-5d490ddc04b6?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "60 mm",
+      "Outer Diameter": "75 mm",
+      "Length": "60 mm",
+      "Material": "Hardened Steel",
+      "Surface Finish": "Ra 0.6 μm",
+      "Tolerance": "H6"
+    },
+    description: "High-precision adaptor sleeve for critical applications requiring superior dimensional accuracy and surface finish."
+  },
+  {
+    id: "adaptor-sleeve-as-80",
+    name: "Adaptor Sleeve AS-80",
+    category: "Adaptor Sleeves",
+    subcategory: "Heavy Duty Adaptor Sleeves",
+    image: "https://images.unsplash.com/photo-1585909695337-d2c13091e50e?q=80&w=2070&auto=format&fit=crop",
+    specifications: {
+      "Bore Diameter": "80 mm",
+      "Outer Diameter": "100 mm",
+      "Length": "80 mm",
+      "Material": "Hardened Steel",
+      "Surface Finish": "Ra 0.6 μm",
+      "Tolerance": "H6"
+    },
+    description: "Large adaptor sleeve for heavy machinery applications with exceptional load-carrying capacity."
   }
 ];
 
