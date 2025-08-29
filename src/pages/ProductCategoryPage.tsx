@@ -26,6 +26,10 @@ import zollernLogo from '@/assets/zollern_logo.webp';
 import johnCraneLogo from '@/assets/john_crane_logo.jpg';
 // import spcoLogo from '@/assets/spco-logo-dark.png';
 import spcoLogo from '@/assets/SPCO_Logo.png';
+import zenLogo from '@/assets/zen.png';
+import sartoriusLogo from '@/assets/Sartorius_logo.jpg';
+import admosLogo from '@/assets/admos_logo.jpg';
+import tceLogo from '@/assets/tce_logo.jpg';
 
 interface CategoryInfo {
   id: string;
@@ -58,12 +62,12 @@ const ProductCategoryPage = () => {
         name: "NTN",
         description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
         logo: ntnLogo
+      },
+      {
+        name: "ZEN",
+        description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
+        logo: zenLogo
       }
-      // {
-      //   name: "ZEN",
-      //   description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
-      //   logo: "/src/assets/zen.png"
-      // }
     ],
     "speciality-lubricants": [
       {
@@ -99,6 +103,21 @@ const ProductCategoryPage = () => {
         name: "John Crane",
         description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
         logo: johnCraneLogo
+      },
+      {
+        name: "Sartorius Bearings",
+        description: "Sartorius Bearings has built a reputation for precision-engineered plain and tilting pad bearings used in turbines, compressors, and heavy-duty industrial machinery. Their expertise lies in designing reliable, long-lasting solutions that ensure high efficiency and performance in demanding environments. Now part of Miba's network, Sartorius strengthens the portfolio with proven technology and application-specific designs that support industries such as power generation and process equipment.",
+        logo: sartoriusLogo
+      },
+      {
+        name: "Admos Gleitlager",
+        description: "Admos Gleitlager is known for its advanced hydrodynamic and tilting pad bearings, engineered for heavy-duty applications in power plants, petrochemical industries, and marine systems. Their focus on customized solutions and robust engineering ensures durability under extreme operating conditions. As a trusted brand, Admos brings specialized knowledge and innovation to Miba's lineup, offering customers enhanced reliability and long service life across critical machinery.",
+        logo: admosLogo
+      },
+      {
+        name: "TCE (Turbo Components & Engineering)",
+        description: "TCE is a manufacturer of journal and tilting pad bearings designed for high-speed and high-load rotating equipment such as turbines and compressors. With decades of expertise in precision manufacturing, TCE has earned recognition for its ability to deliver dependable and efficient bearing solutions. Integration with Miba's global network strengthens customer access to advanced bearing technologies and technical support for demanding industrial applications.",
+        logo: tceLogo
       }
     ],
     "self-lubricating-bushes": [
