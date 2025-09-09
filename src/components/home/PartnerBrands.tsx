@@ -1,10 +1,7 @@
-import React from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  CarouselItem
 } from "@/components/ui/carousel";
 import ntn from '@/assets/ntn.png';
 import miba from '@/assets/Miba.png';

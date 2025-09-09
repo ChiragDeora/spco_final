@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
-import heroVideo from '@/assets/Home_video.mp4';
-import OptimizedVideo from "@/components/ui/OptimizedVideo";
+import heroDesignPlaceholder from '@/assets/Hero_design_placeholder.png';
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const Hero = () => {
   return (
@@ -60,12 +60,9 @@ const Hero = () => {
             >
               <CardBody className="!h-auto !w-auto !bg-transparent !border-none !shadow-none !p-0 !transform-none">
                 <CardItem translateZ="30" className="w-full h-full">
-                  <OptimizedVideo 
-                    src={heroVideo} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
+                  <OptimizedImage 
+                    src={heroDesignPlaceholder} 
+                    alt="SPCO Hero Design"
                     className="w-full h-full object-contain animate-fade-up"
                     style={{
                       mixBlendMode: 'multiply'
