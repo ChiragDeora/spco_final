@@ -146,6 +146,22 @@ export default {
 					'0%': { transform: 'scale(0.95)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' },
 				},
+				'gradient-shift': {
+					'0%': { 
+						background: 'linear-gradient(to bottom left, #f3f4f6, #dbeafe, #bfdbfe)'
+					},
+					'50%': { 
+						background: 'linear-gradient(to bottom left, #e5e7eb, #e0f2fe, #bae6fd)'
+					},
+					'100%': { 
+						background: 'linear-gradient(to bottom left, #f3f4f6, #dbeafe, #bfdbfe)'
+					},
+				},
+				'shimmer': {
+					'0%': { transform: 'skew(-13deg) translateX(-120%)' },
+					'60%': { transform: 'skew(-13deg) translateX(120%)' },
+					'100%': { transform: 'skew(-13deg) translateX(120%)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -156,6 +172,8 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out forwards',
 				'slide-in-left': 'slide-in-left 0.5s ease-out forwards',
 				'zoom-in': 'zoom-in 0.4s ease-out forwards',
+				'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
+				'shimmer': 'shimmer 3s ease-in-out infinite',
 			}
 		}
 	},
