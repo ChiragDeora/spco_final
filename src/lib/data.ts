@@ -334,6 +334,154 @@ export const products: Product[] = [
       "Tolerance": "H6"
     },
     description: "Large adaptor sleeve for heavy machinery applications with exceptional load-carrying capacity."
+  },
+  {
+    id: "static-o-ring-35x55x10",
+    name: "Static O-Ring 35x55x10",
+    category: "Seals",
+    subcategory: "Static Seals",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Inner Diameter": "35 mm",
+      "Outer Diameter": "55 mm",
+      "Cross Section": "10 mm",
+      "Material": "NBR",
+      "Temperature Range": "-30°C to 120°C",
+      "Pressure Range": "0-25 bar",
+      "Brand": "Freudenberg"
+    },
+    description: "High-quality static O-ring for applications with no movement between sealing component and surface. Standardized size and tolerance for reliable sealing performance."
+  },
+  {
+    id: "dynamic-rotary-seal-50x70x12",
+    name: "Dynamic Rotary Seal 50x70x12",
+    category: "Seals",
+    subcategory: "Dynamic Seals",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Inner Diameter": "50 mm",
+      "Outer Diameter": "70 mm",
+      "Width": "12 mm",
+      "Material": "FKM",
+      "Temperature Range": "-20°C to 200°C",
+      "Speed": "Up to 15 m/s",
+      "Brand": "Merkel"
+    },
+    description: "Advanced dynamic seal for rotary applications with excellent sealing force balance and minimal friction. Designed for heavy industry applications."
+  },
+  {
+    id: "oil-seal-tc-40x60x8",
+    name: "Oil Seal TC 40x60x8",
+    category: "Seals",
+    subcategory: "Dynamic Seals",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Inner Diameter": "40 mm",
+      "Outer Diameter": "60 mm",
+      "Width": "8 mm",
+      "Seal Type": "TC (Double Lip)",
+      "Material": "NBR",
+      "Temperature Range": "-30°C to 120°C",
+      "Brand": "NOK"
+    },
+    description: "Premium oil seal with double lip design for superior sealing performance. ISO 9001 certified quality with world-class manufacturing standards."
+  },
+  {
+    id: "custom-seal-solution-cs-100",
+    name: "Custom Seal Solution CS-100",
+    category: "Seals",
+    subcategory: "Special Sealing Products",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Application": "Custom Design",
+      "Material": "Specialized Compound",
+      "Temperature Range": "Custom",
+      "Pressure Range": "Custom",
+      "Geometry": "Specialized",
+      "Brand": "Simrit"
+    },
+    description: "Customized sealing solution with special geometry and application requirements. Individually designed and manufactured with expert material and application know-how."
+  },
+  {
+    id: "hydraulic-accumulator-piston-2l",
+    name: "Hydraulic Accumulator Piston 2L",
+    category: "Seals",
+    subcategory: "Accumulators",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Volume": "2 Liters",
+      "Type": "Piston Accumulator",
+      "Max Pressure": "350 bar",
+      "Operating Temperature": "-20°C to 80°C",
+      "Material": "Steel",
+      "Brand": "Freudenberg"
+    },
+    description: "Complete hydraulic accumulator solution with over six decades of experience. Customer-specific solutions including special weight and space-saving designs."
+  },
+  {
+    id: "static-radial-seal-25x40x6",
+    name: "Static Radial Seal 25x40x6",
+    category: "Seals",
+    subcategory: "Static Seals",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Inner Diameter": "25 mm",
+      "Outer Diameter": "40 mm",
+      "Width": "6 mm",
+      "Material": "EPDM",
+      "Temperature Range": "-40°C to 150°C",
+      "Brand": "Merkel"
+    },
+    description: "Static radial seal with seal centerline having radial orientation. High-quality sealing for stationary applications with excellent chemical resistance."
+  },
+  {
+    id: "reciprocating-seal-30x50x10",
+    name: "Reciprocating Seal 30x50x10",
+    category: "Seals",
+    subcategory: "Dynamic Seals",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Inner Diameter": "30 mm",
+      "Outer Diameter": "50 mm",
+      "Width": "10 mm",
+      "Material": "PU",
+      "Temperature Range": "-20°C to 100°C",
+      "Speed": "Up to 2 m/s",
+      "Brand": "NOK"
+    },
+    description: "Dynamic seal for reciprocating motion applications. Maintains optimal balance between sealing force and friction for reliable performance."
+  },
+  {
+    id: "vibration-control-seal-vc-75",
+    name: "Vibration Control Seal VC-75",
+    category: "Seals",
+    subcategory: "Special Sealing Products",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Application": "Vibration Control",
+      "Material": "Specialized Compound",
+      "Temperature Range": "-30°C to 120°C",
+      "Frequency Range": "Custom",
+      "Damping": "High",
+      "Brand": "Simrit"
+    },
+    description: "Specialized seal for vibration control applications. Technology specialist solution with unique service package for quality, functionality and cost effectiveness."
+  },
+  {
+    id: "diaphragm-accumulator-5l",
+    name: "Diaphragm Accumulator 5L",
+    category: "Seals",
+    subcategory: "Accumulators",
+    image: "/src/assets/Seals_cover.png",
+    specifications: {
+      "Volume": "5 Liters",
+      "Type": "Diaphragm Accumulator",
+      "Max Pressure": "200 bar",
+      "Operating Temperature": "-10°C to 70°C",
+      "Material": "Steel with EPDM Diaphragm",
+      "Brand": "Freudenberg"
+    },
+    description: "Diaphragm accumulator for mobile and stationary applications. Combines market knowledge, latest technology and global support for optimal performance."
   }
 ];
 

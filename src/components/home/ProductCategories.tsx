@@ -9,6 +9,7 @@ import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
 import lubricant_homePage from '@/assets/lubricant_homePage.jpg';
 import AutoParts from '@/assets/Autoparts.jpg';  
 import Bushes from '@/assets/Bushes.jpg';
+import sealsCover from '@/assets/Seals_cover.png';
 
 interface Category {
   id: string;
@@ -61,6 +62,13 @@ const ProductCategories = () => {
       description: "Precision adaptor sleeves for secure bearing mounting and proper shaft-to-bore connections.",
       src: adapterSleevesLogo,
       link: "/products/adaptor-sleeves"
+    },
+    {
+      id: "seals",
+      name: "Seals",
+      description: "Comprehensive sealing solutions for static, dynamic, and specialized applications across various industries.",
+      src: sealsCover,
+      link: "/products/seals"
     }
   ];
 
@@ -74,9 +82,11 @@ const ProductCategories = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-12">
-          {categories.map((category) => (
-            <Link key={category.id} to={category.link} className="group">
+        <div className="space-y-6 mb-12">
+          {/* First row - 4 categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {categories.slice(0, 4).map((category) => (
+              <Link key={category.id} to={category.link} className="group">
               <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 h-full">
                 <div className="h-48 overflow-hidden bg-neutral-100">
                   <img 
@@ -104,11 +114,45 @@ const ProductCategories = () => {
               </Card>
             </Link>
           ))}
+          </div>
+          
+          {/* Second row - 3 categories centered */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {categories.slice(4).map((category) => (
+              <Link key={category.id} to={category.link} className="group">
+                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 h-full">
+                  <div className="h-48 overflow-hidden bg-neutral-100">
+                    <img 
+                      src={category.src} 
+                      alt={category.name} 
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 animate-fade-up"
+                    />
+                  </div>
+                  <CardHeader className="pb-2">
+                    <h3 className="text-lg font-semibold text-spco-700 group-hover:text-spco-800 transition-colors">
+                      {category.name}
+                    </h3>
+                  </CardHeader>
+                  <CardContent className="pb-4">
+                    <p className="text-neutral-600 text-sm line-clamp-3">
+                      {category.description}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="pt-0">
+                    <div className="text-spco-600 group-hover:text-spco-800 font-medium text-sm inline-flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                      Explore Category
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </div>
+                  </CardFooter>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="text-center">
           <Button asChild size="lg">
-            <Link to="/products">
+            <Link to="/#product-categories">
               View All Products
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>

@@ -30,6 +30,11 @@ import zenLogo from '@/assets/zen.png';
 import sartoriusLogo from '@/assets/Sartorius_logo.jpg';
 import admosLogo from '@/assets/admos_logo.jpg';
 import tceLogo from '@/assets/tce_logo.jpg';
+import sealsCover from '@/assets/Seals_cover.png';
+import freudenbergLogo from '@/assets/freudenberg_logo.png';
+import merkelLogo from '@/assets/merkel-logo.png';
+import nokLogo from '@/assets/nok_logo.jpeg';
+import simritLogo from '@/assets/simrit_logo.png';
 
 interface CategoryInfo {
   id: string;
@@ -135,6 +140,28 @@ const ProductCategoryPage = () => {
         // logo: spcoLogo,
         logo: spcoLogo,
         size: "h-20 w-auto"
+      }
+    ],
+    "seals": [
+      {
+        name: "Freudenberg Sealing Technologies",
+        description: "Global Leader in Sealing Solutions and Applications. Freudenberg Sealing Technologies is a proven supplier for demanding products and applications, and a development and service partner to customers in the automotive industries and in general industries. We apply 175 years of engineering and materials expertise.",
+        logo: freudenbergLogo
+      },
+      {
+        name: "Merkel",
+        description: "Sealing technology acknowledged worldwide. Merkel is the market leader in the field of seals for heavy industry. With innovative solutions and definitive products for all sectors, we rank among the world's best-thought-of experts on sealing technology. The quality of Merkel seals is recognized worldwide.",
+        logo: merkelLogo
+      },
+      {
+        name: "NOK",
+        description: "Globally Recognized World Class Quality. The NOK Oil Seal Division, which is a production base for oil seals, has obtained ISO 9001 certification, an international quality standard. We will continue to supply products that meet our customers' needs and strive to further improve our quality so that we can earn even higher levels of trust than ever before.",
+        logo: nokLogo
+      },
+      {
+        name: "Simrit",
+        description: "Your technology specialist for seals and Vibration control. Our unique service package sets standards in quality, functionality and cost effectiveness throughout the industry.",
+        logo: simritLogo
       }
     ]
   };
@@ -270,6 +297,27 @@ const ProductCategoryPage = () => {
         "Industrial machinery",
         "Equipment maintenance",
         "Precision engineering applications"
+      ]
+    },
+    "seals": {
+      id: "seals",
+      name: "Seals",
+      description: "Comprehensive sealing solutions for static, dynamic, and specialized applications across various industries.",
+      detailedDescription: "Our seals portfolio encompasses a complete range of sealing solutions designed to meet the most demanding industrial requirements. From static O-rings and dynamic seals to specialized custom solutions and hydraulic accumulators, we provide products from world-leading manufacturers. Our sealing solutions ensure optimal performance, reliability, and longevity in critical applications across automotive, heavy industry, and general industrial sectors.",
+      image: sealsCover,
+      features: [
+        "Static and dynamic sealing solutions",
+        "Custom specialized sealing products",
+        "Hydraulic accumulator systems",
+        "World-class manufacturing standards",
+        "Expert technical support and consultation"
+      ],
+      applications: [
+        "Automotive and heavy industry applications",
+        "Hydraulic and pneumatic systems",
+        "Power generation equipment",
+        "Industrial machinery and equipment",
+        "Custom engineering solutions"
       ]
     }
   };
@@ -477,11 +525,11 @@ const ProductCategoryPage = () => {
                 <div key={index} className="group bg-white rounded-xl p-6 shadow-lg border border-neutral-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-center">
                     {brand.logo ? (
-                      <div className={`${brand.size || 'w-20 h-20'} mr-6 flex items-center justify-center flex-shrink-0`}>
+                      <div className="w-24 h-24 mr-6 flex items-center justify-center flex-shrink-0 bg-white rounded-lg border border-neutral-100 p-3">
                         <img 
                           src={brand.logo} 
                           alt={`${brand.name} logo`} 
-                          className="max-w-full max-h-full object-contain"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     ) : (

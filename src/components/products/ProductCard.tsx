@@ -4,6 +4,10 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import journalLogo from "@/assets/journal_and_tilting_pad_logo.jpg";
 import adapterSleevesLogo from "@/assets/adapter-sleeves_logo.jpg";
+import freudenbergLogo from "@/assets/freudenberg_logo.png";
+import merkelLogo from "@/assets/merkel-logo.png";
+import nokLogo from "@/assets/nok_logo.jpg";
+import simritLogo from "@/assets/simrit_logo.png";
 
 export interface Product {
   id: string;
@@ -62,6 +66,39 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
               alt="Adapter Sleeves Logo"
               className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
             />
+          </div>
+        )}
+        {/* Brand Logos for Seals */}
+        {category === "Seals" && (
+          <div className="absolute bottom-3 right-3">
+            {product.specifications.Brand === "Freudenberg" && (
+              <img
+                src={freudenbergLogo}
+                alt="Freudenberg Logo"
+                className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+              />
+            )}
+            {product.specifications.Brand === "Merkel" && (
+              <img
+                src={merkelLogo}
+                alt="Merkel Logo"
+                className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+              />
+            )}
+            {product.specifications.Brand === "NOK" && (
+              <img
+                src={nokLogo}
+                alt="NOK Logo"
+                className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+              />
+            )}
+            {product.specifications.Brand === "Simrit" && (
+              <img
+                src={simritLogo}
+                alt="Simrit Logo"
+                className="h-8 w-8 object-contain rounded-full bg-white p-1 shadow-sm"
+              />
+            )}
           </div>
         )}
       </div>

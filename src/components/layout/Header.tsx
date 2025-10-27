@@ -43,6 +43,7 @@ const Header = () => {
         { name: 'Journal & Tilting Pad Bearings', href: '/products/journal-tilting-pad-bearings' },
         { name: 'Self Lubricating Bushes', href: '/products/self-lubricating-bushes' },
         { name: 'Adaptor Sleeves', href: '/products/adaptor-sleeves' },
+        { name: 'Seals', href: '/products/seals' },
       ]
     },
     // { name: 'Shop', href: '/products' },
