@@ -172,6 +172,34 @@
   .slide:hover {
     animation-play-state: paused;
   }
+  
+  /* Partner Brands Slider - Separate Classes */
+  .brands-slider {
+    height: 240px; /* h-48 = 192px + padding */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+  }
+  
+  .brands-slide-track {
+    animation: scroll-brands 25s linear infinite;
+    display: flex;
+    width: calc(280px * 10); /* 5 brands * 2 sets * 280px each */
+  }
+  
+  .brands-slide {
+    height: 240px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brands-slide:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes scroll {
@@ -180,5 +208,14 @@
   }
   100% { 
     transform: translateX(calc(-300px * 13)); /* Move by exactly one set of logos */
+  }
+}
+
+@keyframes scroll-brands {
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(calc(-280px * 5)); /* Move by exactly one set of brands */
   }
 }

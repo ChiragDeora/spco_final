@@ -1,8 +1,3 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel";
 import ntn from '@/assets/ntn.png';
 import miba from '@/assets/Miba.png';
 import zen from '@/assets/zen.png';
@@ -51,29 +46,35 @@ const PartnerBrands = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-              slidesToScroll: 1,
-              containScroll: "trimSnaps",
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
+          {/* Auto-moving carousel with separate classes */}
+          <div className="brands-slider">
+            <div className="brands-slide-track">
+              {/* First set of brands */}
               {brands.map((brand, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
-                  <div className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300 h-48 flex items-center justify-center">
+                <div key={`first-${index}`} className="brands-slide">
+                  <div className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300 h-48 flex items-center justify-center mx-1">
                     <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       className={`${brand.size} max-w-full object-contain transition-all duration-300`}
                     />
                   </div>
-                </CarouselItem>
+                </div>
               ))}
-            </CarouselContent>
-          </Carousel>
+              {/* Duplicate set for seamless loop */}
+              {brands.map((brand, index) => (
+                <div key={`second-${index}`} className="brands-slide">
+                  <div className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300 h-48 flex items-center justify-center mx-1">
+                    <img
+                      src={brand.logo}
+                      alt={`${brand.name} logo`}
+                      className={`${brand.size} max-w-full object-contain transition-all duration-300`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
