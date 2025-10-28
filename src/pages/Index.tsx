@@ -3,7 +3,7 @@ import Hero from "@/components/home/Hero";
 import Partners from "@/components/home/Partners";
 import PartnerBrands from "@/components/home/PartnerBrands";
 import ProductCategories from "@/components/home/ProductCategories";
-import Testimonials from "@/components/home/Testimonials";
+// import Testimonials from "@/components/home/Testimonials";
 import QuickContact from "@/components/home/QuickContact";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -23,7 +23,7 @@ const Index = () => {
         <PartnerBrands />
         <Partners />
         <ProductCategories />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <QuickContact />
       </main>
       <Footer />
