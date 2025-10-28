@@ -136,4 +136,49 @@
   .fade-in-stagger > *:nth-child(4) { animation-delay: 0.4s; }
   .fade-in-stagger > *:nth-child(5) { animation-delay: 0.5s; }
   .fade-in-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Advanced Slider Styles */
+  .slider {
+    height: 160px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+  }
+  
+  .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(300px * 26); /* 13 logos * 2 sets * 300px each */
+  }
+  
+  .slide {
+    height: 160px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slide:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(calc(-300px * 13)); /* Move by exactly one set of logos */
+  }
 }

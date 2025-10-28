@@ -5,38 +5,86 @@ import tataLogo from '@/assets/tata.png';
 import ioclLogo from '@/assets/iocl_logo.png';
 import indianRailwaysLogo from '@/assets/indian_railways_logo.webp';
 import jswLogo from '@/assets/JSW_logo.png';
+import adityaBirlaLogo from '@/assets/additya_birla logo.jpg';
+import adaniLogo from '@/assets/adani_logo.png';
+import ultratechLogo from '@/assets/ultratech_logo.jpeg';
+import hindalcoLogo from '@/assets/Hindalco_logo.png';
+import bhushanLogo from '@/assets/bhushan_logo.jpg';
+import nhpcLogo from '@/assets/nhpc_logo.jpg';
+import bemlLogo from '@/assets/Beml_logo.png';
+import belLogo from '@/assets/bel_logo.jpg';
 
 const Partners = () => {
   const customers = [
     {
       name: "JSW",
       src: jswLogo,
-      size: "h-28 w-auto" // Increased from h-20
+      size: "h-28 w-auto"
     },
     {
       name: "Indian Railways",
       src: indianRailwaysLogo,
-      size: "h-32 w-auto" // Increased from h-70 (which was invalid)
+      size: "h-32 w-auto"
     },
     {
       name: "BHEL",
       src: bhelLogo,
-      size: "h-24 w-auto" // Increased from h-20
+      size: "h-24 w-auto"
     },
     {
       name: "TATA",
       src: tataLogo,
-      size: "h-26 w-auto" // Increased from h-20
+      size: "h-26 w-auto"
     },
     {
       name: "IOCL",
       src: ioclLogo,
-      size: "h-30 w-auto" // Increased from h-80 (which was invalid)
+      size: "h-30 w-auto"
+    },
+    {
+      name: "Aditya Birla Group",
+      src: adityaBirlaLogo,
+      size: "h-28 w-auto"
+    },
+    {
+      name: "Adani",
+      src: adaniLogo,
+      size: "h-24 w-auto"
+    },
+    {
+      name: "UltraTech Building Products",
+      src: ultratechLogo,
+      size: "h-28 w-auto"
+    },
+    {
+      name: "Hindalco",
+      src: hindalcoLogo,
+      size: "h-26 w-auto"
+    },
+    {
+      name: "Bhushan Power & Steel",
+      src: bhushanLogo,
+      size: "h-28 w-auto"
+    },
+    {
+      name: "NHPC",
+      src: nhpcLogo,
+      size: "h-26 w-auto"
+    },
+    {
+      name: "BEML",
+      src: bemlLogo,
+      size: "h-28 w-auto"
+    },
+    {
+      name: "Bharat Electronics",
+      src: belLogo,
+      size: "h-26 w-auto"
     }
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="section-title">Our esteemed customers</h2>
@@ -45,19 +93,30 @@ const Partners = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-          {customers.map((customer, index) => (
-            <div 
-              key={index} 
-              className="bg-white p-8 rounded-lg border border-neutral-100 shadow-sm hover:shadow-md transition-custom flex items-center justify-center h-56"
-            >
-              <img 
-                src={customer.src} 
-                alt={customer.name} 
-                className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom animate-fade-up`}
-              />
-            </div>
-          ))}
+        {/* Advanced slider carousel */}
+        <div className="slider">
+          <div className="slide-track">
+            {/* First set of logos */}
+            {customers.map((customer, index) => (
+              <div key={`first-${index}`} className="slide">
+                <img 
+                  src={customer.src} 
+                  alt={customer.name} 
+                  className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom mx-8`}
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {customers.map((customer, index) => (
+              <div key={`second-${index}`} className="slide">
+                <img 
+                  src={customer.src} 
+                  alt={customer.name} 
+                  className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom mx-8`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

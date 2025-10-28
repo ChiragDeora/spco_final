@@ -6,7 +6,7 @@ import journalLogo from "@/assets/journal_and_tilting_pad_logo.jpg";
 import adapterSleevesLogo from "@/assets/adapter-sleeves_logo.jpg";
 import freudenbergLogo from "@/assets/freudenberg_logo.png";
 import merkelLogo from "@/assets/merkel-logo.png";
-import nokLogo from "@/assets/nok_logo.jpg";
+import nokLogo from "@/assets/nok_logo.jpeg";
 import simritLogo from "@/assets/simrit_logo.png";
 
 export interface Product {
