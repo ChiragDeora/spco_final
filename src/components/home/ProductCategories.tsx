@@ -2,14 +2,13 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import ballbearings from '@/assets/ballbearings.jpg';
-import journalLogo from '@/assets/journal_and_tilting_pad_logo.jpg';
+import journalTilt from '@/assets/journal&tilt.jpeg';
 import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
 import lubricant_homePage from '@/assets/lubricant_homePage.jpg';
-import AutoParts from '@/assets/Autoparts.jpg';  
-import Bushes from '@/assets/Bushes.jpg';
-import sealsCover from '@/assets/Seals_cover.png';
+import autoparts from '@/assets/autoparts.jpg';  
+import lubricatingBushes from '@/assets/lubricating_bushes.webp';
+import sealImage from '@/assets/Seal.jpg';
 
 interface Category {
   id: string;
@@ -39,21 +38,21 @@ const ProductCategories = () => {
       id: "automotive-parts",
       name: "Automotive Parts",
       description: "Quality automotive components and parts designed for reliability and performance in vehicle applications.",
-      src: AutoParts,
+      src: autoparts,
       link: "/products/automotive-parts"
     },
     {
       id: "journal-tilting-pad-bearings",
       name: "Journal & Tilting Pad Bearings",
       description: "Advanced journal and tilting pad bearings for high-speed, high-load applications in critical machinery.",
-      src: journalLogo,
+      src: journalTilt,
       link: "/products/journal-tilting-pad-bearings"
     },
     {
       id: "self-lubricating-bushes",
       name: "Self Lubricating Bushes",
       description: "Self-lubricating bushings that provide continuous lubrication without external maintenance requirements.",
-      src: Bushes,
+      src: lubricatingBushes,
       link: "/products/self-lubricating-bushes"
     },
     {
@@ -67,7 +66,7 @@ const ProductCategories = () => {
       id: "seals",
       name: "Seals",
       description: "Comprehensive sealing solutions for static, dynamic, and specialized applications across various industries.",
-      src: sealsCover,
+      src: sealImage,
       link: "/products/seals"
     }
   ];
@@ -148,15 +147,6 @@ const ProductCategories = () => {
               </Link>
             ))}
           </div>
-        </div>
-
-        <div className="text-center">
-          <Button asChild size="lg">
-            <Link to="/#product-categories">
-              View All Products
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>

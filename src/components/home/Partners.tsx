@@ -94,26 +94,30 @@ const Partners = () => {
         </div>
         
         {/* Advanced slider carousel */}
-        <div className="slider">
+        <div className="slider group">
           <div className="slide-track">
             {/* First set of logos */}
             {customers.map((customer, index) => (
               <div key={`first-${index}`} className="slide">
-                <img 
-                  src={customer.src} 
-                  alt={customer.name} 
-                  className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom mx-8`}
-                />
+                <div className="h-32 w-64 flex items-center justify-center">
+                  <img 
+                    src={customer.src} 
+                    alt={customer.name} 
+                    className="max-h-full max-w-full object-contain opacity-100"
+                  />
+                </div>
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
             {customers.map((customer, index) => (
               <div key={`second-${index}`} className="slide">
-                <img 
-                  src={customer.src} 
-                  alt={customer.name} 
-                  className={`${customer.size} object-contain opacity-80 hover:opacity-100 transition-custom mx-8`}
-                />
+                <div className="h-32 w-64 flex items-center justify-center">
+                  <img 
+                    src={customer.src} 
+                    alt={customer.name} 
+                    className="max-h-full max-w-full object-contain opacity-100"
+                  />
+                </div>
               </div>
             ))}
           </div>

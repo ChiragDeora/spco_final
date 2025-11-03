@@ -11,11 +11,11 @@ import { Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 // import rollerbearings from '@/assets/rollerbearings.jpg';
 import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
-import AutoParts from '@/assets/Autoparts.jpg';
-import Bushes from '@/assets/Bushes.jpg';
+import autoparts from '@/assets/autoparts.jpg';
+import lubricatingBushes from '@/assets/lubricating_bushes.webp';
 // import tools from '@/assets/tools.jpg';
 import permaglideLogo from '@/assets/permaglide_logo.png';
-import journalLogo from '@/assets/journal_and_tilting_pad_logo.jpg';
+import journalTilt from '@/assets/journal&tilt.jpeg';
 import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
 import ntnLogo from '@/assets/ntn.png';
 import cogelsaLogo from '@/assets/cogelsa.png';
@@ -30,7 +30,7 @@ import zenLogo from '@/assets/zen.png';
 import sartoriusLogo from '@/assets/Sartorius_logo.jpg';
 import admosLogo from '@/assets/admos_logo.jpg';
 import tceLogo from '@/assets/tce_logo.jpg';
-import sealsCover from '@/assets/Seals_cover.png';
+import sealImage from '@/assets/Seal.jpg';
 import freudenbergLogo from '@/assets/freudenberg_logo.png';
 import merkelLogo from '@/assets/merkel-logo.png';
 import nokLogo from '@/assets/nok_logo.jpeg';
@@ -220,7 +220,7 @@ const ProductCategoryPage = () => {
       name: "Automotive Parts",
       description: "Comprehensive range of automotive parts essential for heavy earth moving machinery used in the mining sector.",
       detailedDescription: "We supply a comprehensive range of automotive parts essential for the heavy earth moving machinery used in the mining sector. Our portfolio includes components for engines ensuring top-tier performance and safety. We offer solutions of the automotive industry from the leading original equipment manufacturers (OEMs).",
-      image: AutoParts,
+      image: autoparts,
       features: [
         "Top-tier performance and safety",
         "OEM quality standards",
@@ -241,7 +241,7 @@ const ProductCategoryPage = () => {
       name: "Journal & Tilting Pad Bearings",
       description: "Specialized fluid-film bearings designed for high-speed, high-load applications such as turbines and compressors.",
       detailedDescription: "Journal and tilting pad bearings are a specialized type of fluid-film bearing, designed for high-speed, high-load applications, such as turbines and compressors. They consist of multiple pivoted pads that tilt to form a hydrodynamic wedge of lubricant, providing exceptional stability and load-carrying capacity. These bearings are critical for protecting expensive and vital rotating equipment from damage.",
-      image: journalLogo,
+      image: journalTilt,
       features: [
         "High-speed and high-load capability",
         "Exceptional stability and load-carrying capacity",
@@ -262,7 +262,7 @@ const ProductCategoryPage = () => {
       name: "Self Lubricating Bushes",
       description: "Oilless bearings designed for applications where conventional lubrication is difficult or impossible.",
       detailedDescription: "Self-lubricating bushes, also known as oilless bearings, are designed for applications where conventional lubrication is difficult or impossible. These bushes contain solid lubricants within their structure, which are released during operation to create a protective film. This eliminates the need for external greasing, reducing maintenance costs and ensuring long-lasting performance in harsh conditions.",
-      image: Bushes,
+      image: lubricatingBushes,
       features: [
         "No external lubrication required",
         "Solid lubricant embedded structure",
@@ -304,7 +304,7 @@ const ProductCategoryPage = () => {
       name: "Seals",
       description: "Comprehensive sealing solutions for static, dynamic, and specialized applications across various industries.",
       detailedDescription: "Our seals portfolio encompasses a complete range of sealing solutions designed to meet the most demanding industrial requirements. From static O-rings and dynamic seals to specialized custom solutions and hydraulic accumulators, we provide products from world-leading manufacturers. Our sealing solutions ensure optimal performance, reliability, and longevity in critical applications across automotive, heavy industry, and general industrial sectors.",
-      image: sealsCover,
+      image: sealImage,
       features: [
         "Static and dynamic sealing solutions",
         "Custom specialized sealing products",
@@ -522,7 +522,7 @@ const ProductCategoryPage = () => {
             
             <div className="grid grid-cols-1 gap-6">
               {getBrandsForCategory(categoryInfo.id).map((brand, index) => (
-                <div key={index} className="group bg-white rounded-xl p-6 shadow-lg border border-neutral-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div key={index} className="group bg-white rounded-lg p-6 shadow-sm border border-neutral-100 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200 transition-all duration-300">
                   <div className="flex items-center">
                     {brand.logo ? (
                       <div className="w-24 h-24 mr-6 flex items-center justify-center flex-shrink-0 bg-white rounded-lg border border-neutral-100 p-3">

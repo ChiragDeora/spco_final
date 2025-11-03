@@ -34,7 +34,7 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
 
   return (
     <div className={cn(
-      "bg-white rounded-lg border border-neutral-200 overflow-hidden shadow-sm hover:shadow-md transition-custom group",
+      "bg-white rounded-lg border border-neutral-100 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-spco-200 transition-all duration-300 group",
       className
     )}>
       <div className="relative h-48 overflow-hidden bg-neutral-100">

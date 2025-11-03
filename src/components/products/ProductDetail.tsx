@@ -27,7 +27,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Product Main Info */}
-      <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+      <div className="bg-white rounded-lg shadow-sm border border-neutral-100 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Product Image */}
           <div className="p-8 bg-neutral-50 flex items-center justify-center relative">
@@ -254,7 +254,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200">
+                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-100">
                   <h3 className="text-lg font-medium text-spco-700 mb-3">Manufacturing</h3>
                   <ul className="space-y-2 text-neutral-700">
                     <li className="flex items-start">
@@ -272,7 +272,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                   </ul>
                 </div>
                 
-                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200">
+                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-100">
                   <h3 className="text-lg font-medium text-spco-700 mb-3">Automotive</h3>
                   <ul className="space-y-2 text-neutral-700">
                     <li className="flex items-start">
@@ -290,7 +290,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                   </ul>
                 </div>
                 
-                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200">
+                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-100">
                   <h3 className="text-lg font-medium text-spco-700 mb-3">Heavy Machinery</h3>
                   <ul className="space-y-2 text-neutral-700">
                     <li className="flex items-start">
@@ -308,7 +308,7 @@ const ProductDetail = ({ product, relatedProducts }: ProductDetailProps) => {
                   </ul>
                 </div>
                 
-                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-200">
+                <div className="bg-neutral-50 p-6 rounded-lg border border-neutral-100">
                   <h3 className="text-lg font-medium text-spco-700 mb-3">Energy</h3>
                   <ul className="space-y-2 text-neutral-700">
                     <li className="flex items-start">

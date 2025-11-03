@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ContactForm from "@/components/common/ContactForm";
 import { MapPin, Phone, Mail, Clock, LinkedinIcon } from "lucide-react";
+import contactBg from "@/assets/contact_bg.jpg";
 
 const Contact = () => {
   useEffect(() => {
@@ -17,7 +18,13 @@ const Contact = () => {
       <Header />
       <main className="flex-grow pt-24">
         <section className="relative bg-spco-800 text-white">
-          <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1507646871303-331b8f659227?q=80&w=2874&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={contactBg} 
+              alt="" 
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-spco-900 to-spco-800/70"></div>
 
           <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">

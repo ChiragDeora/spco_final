@@ -46,34 +46,20 @@ const PartnerBrands = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto">
-          {/* Auto-moving carousel with separate classes */}
-          <div className="brands-slider">
-            <div className="brands-slide-track">
-              {/* First set of brands */}
-              {brands.map((brand, index) => (
-                <div key={`first-${index}`} className="brands-slide">
-                  <div className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300 h-48 flex items-center justify-center mx-1">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} logo`}
-                      className={`${brand.size} max-w-full object-contain transition-all duration-300`}
-                    />
-                  </div>
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {brands.map((brand, index) => (
-                <div key={`second-${index}`} className="brands-slide">
-                  <div className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300 h-48 flex items-center justify-center mx-1">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} logo`}
-                      className={`${brand.size} max-w-full object-contain transition-all duration-300`}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Static grid display of all brands */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-16">
+            {brands.map((brand, index) => (
+              <div 
+                key={index} 
+                className="group h-48 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+              >
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  className="h-32 w-auto max-w-full object-contain opacity-100"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

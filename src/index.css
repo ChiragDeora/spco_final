@@ -87,6 +87,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
@@ -156,7 +160,7 @@
   }
   
   .slide-track {
-    animation: scroll 40s linear infinite;
+    animation: scroll 70s linear infinite;
     display: flex;
     width: calc(300px * 26); /* 13 logos * 2 sets * 300px each */
   }
@@ -169,37 +173,16 @@
     justify-content: center;
   }
   
+  .slider:hover .slide-track {
+    animation-play-state: paused;
+  }
+  
   .slide:hover {
     animation-play-state: paused;
   }
   
-  /* Partner Brands Slider - Separate Classes */
-  .brands-slider {
-    height: 240px; /* h-48 = 192px + padding */
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 1400px;
-  }
-  
-  .brands-slide-track {
-    animation: scroll-brands 25s linear infinite;
-    display: flex;
-    width: calc(280px * 10); /* 5 brands * 2 sets * 280px each */
-  }
-  
-  .brands-slide {
-    height: 240px;
-    width: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .brands-slide:hover {
-    animation-play-state: paused;
-  }
+  /* Partner Brands - Static Grid (no longer a slider) */
+  /* Brands are now displayed statically in a grid, so these styles are kept for backward compatibility but not actively used */
 }
 
 @keyframes scroll {

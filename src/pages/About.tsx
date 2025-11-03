@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import spcoAboutus from '@/assets/aboutus.png';
+import contactBg from '@/assets/contact_bg.jpg';
 import { CheckCircle, MapPin, Award, Users, TrendingUp, BarChart3 } from "lucide-react";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
@@ -17,7 +18,13 @@ const About = () => {
       <main className="flex-grow pt-24">
         {/* Hero Section */}
         <section className="relative bg-spco-800 text-white">
-          <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1507646871303-331b8f659227?q=80&w=2874&auto=format&fit=crop')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={contactBg} 
+              alt="" 
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-spco-900 to-spco-800/70"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
@@ -95,8 +102,8 @@ const About = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full">
-                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4">
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200">
+                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
                   <Award className="h-6 w-6 text-spco-600" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-spco-700 mb-3">
@@ -107,8 +114,8 @@ const About = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full">
-                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4">
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200">
+                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
                   <TrendingUp className="h-6 w-6 text-spco-600" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-spco-700 mb-3">
@@ -119,8 +126,8 @@ const About = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full">
-                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4">
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-neutral-100 h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200">
+                <div className="bg-spco-50 p-3 inline-flex rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
                   <Users className="h-6 w-6 text-spco-600" />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-spco-700 mb-3">
