@@ -6,7 +6,7 @@ import ballbearings from '@/assets/ballbearings.jpg';
 import journalTilt from '@/assets/journal&tilt.jpeg';
 import adapterSleevesLogo from '@/assets/adapter-sleeves_logo.jpg';
 import lubricant_homePage from '@/assets/lubricant_homePage.jpg';
-import autoparts from '@/assets/autoparts.jpg';  
+import autoparts from '@/assets/optimized/Autoparts-optimized.jpg';  
 import lubricatingBushes from '@/assets/lubricating_bushes.webp';
 import sealImage from '@/assets/Seal.jpg';
 

@@ -11,7 +11,7 @@ import { Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 // import rollerbearings from '@/assets/rollerbearings.jpg';
 import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
-import autoparts from '@/assets/autoparts.jpg';
+import autoparts from '@/assets/optimized/Autoparts-optimized.jpg';
 import lubricatingBushes from '@/assets/lubricating_bushes.webp';
 // import tools from '@/assets/tools.jpg';
 import permaglideLogo from '@/assets/permaglide_logo.png';
