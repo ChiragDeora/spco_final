@@ -1,25 +1,15 @@
 import ntn from '@/assets/ntn.png';
 import miba from '@/assets/Miba.png';
-import zen from '@/assets/zen.png';
 import rheinmetall from '@/assets/Rheinmetall.png';
 import cogelsa from '@/assets/cogelsa.png';
+import rbcBearings from '@/assets/rbc_bearings.png';
 
 const PartnerBrands = () => {
   const brands = [
     { 
-      name: "NTN", 
-      logo: ntn,
-      size: "h-24 w-auto" // Increased from h-16
-    },
-    { 
       name: "Miba", 
       logo: miba,
       size: "h-20 w-auto" // Custom size for Miba
-    },
-    { 
-      name: "Zen", 
-      logo: zen,
-      size: "h-28 w-28" // Larger size for Zen
     },
     { 
       name: "Rheinmetall", 
@@ -27,9 +17,19 @@ const PartnerBrands = () => {
       size: "h-28 w-auto" // Custom size for Rheinmetall
     },
     { 
+      name: "NTN", 
+      logo: ntn,
+      size: "h-24 w-auto" // Increased from h-16
+    },
+    { 
       name: "Cogelsa", 
       logo: cogelsa,
       size: "h-26 w-auto" // Larger size for Cogelsa
+    },
+    { 
+      name: "RBC Bearings", 
+      logo: rbcBearings,
+      size: "h-28 w-auto" // Custom size for RBC Bearings
     },
   ];
 

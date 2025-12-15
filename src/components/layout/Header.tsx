@@ -19,6 +19,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const isActive = (path: string) => {
     // Special case for Products tab - only highlight when on specific product category pages
     if (path === '/products') {
@@ -145,13 +157,21 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Mobile Menu Backdrop */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Menu */}
       <div 
         className={cn(
-          'fixed inset-0 z-40 bg-white transform transition-transform ease-in-out duration-300 lg:hidden',
+          'fixed top-[60px] left-0 right-0 bottom-0 z-40 bg-white transform transition-transform ease-in-out duration-300 lg:hidden',
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         )}
-        style={{ top: '60px' }}
       >
         <div className="h-full overflow-y-auto px-4 py-6">
           {/* <SearchBar className="mb-6" /> */}
@@ -187,7 +207,10 @@ const Header = () => {
                             key={subitem.name}
                             to={subitem.href}
                             className="block py-2 px-3 rounded-md text-neutral-600 hover:bg-neutral-50 hover:text-spco-600"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setProductsMenuOpen(false);
+                            }}
                           >
                             {subitem.name}
                           </Link>
@@ -204,7 +227,10 @@ const Header = () => {
                         ? (isShopActive() ? 'bg-neutral-100 text-spco-700' : 'text-neutral-700 hover:bg-neutral-50')
                         : (isActive(item.href) ? 'bg-neutral-100 text-spco-700' : 'text-neutral-700 hover:bg-neutral-50')
                     )}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setProductsMenuOpen(false);
+                    }}
                   >
                     <span className="font-medium">{item.name}</span>
                   </Link>
@@ -216,7 +242,10 @@ const Header = () => {
               <Link 
                 to="/contact" 
                 className="btn-primary w-full justify-center"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setProductsMenuOpen(false);
+                }}
               >
                 Enquire Now
               </Link>
