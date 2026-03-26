@@ -58,7 +58,7 @@ const Header = () => {
         { name: 'Seals', href: '/products/seals' },
       ]
     },
-    // { name: 'Shop', href: '/products' },
+    { name: 'Shop', href: '/products' },
     // { 
     //   name: 'Industries', 
     //   href: '/industries',

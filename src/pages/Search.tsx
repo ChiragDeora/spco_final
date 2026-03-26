@@ -5,36 +5,37 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProductCard, { Product } from "@/components/products/ProductCard";
-import { searchProducts } from "@/lib/data";
+import { useProducts } from "@/contexts/ProductsContext";
 import { Search as SearchIcon } from "lucide-react";
 
 const Search = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const searchQuery = queryParams.get('q') || '';
+  const { searchProducts, loading: contextLoading } = useProducts();
   
   const [results, setResults] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Scroll to top when component mounts or search query changes
     window.scrollTo(0, 0);
     setLoading(true);
     
     if (searchQuery) {
-      // Simulate a search delay
       const timer = setTimeout(() => {
         const searchResults = searchProducts(searchQuery);
         setResults(searchResults);
         setLoading(false);
-      }, 500);
+      }, 300);
       
       return () => clearTimeout(timer);
     } else {
       setResults([]);
       setLoading(false);
     }
-  }, [searchQuery]);
+  }, [searchQuery, searchProducts]);
+
+  const isLoading = loading || contextLoading;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -47,7 +48,7 @@ const Search = () => {
               Search Results {searchQuery && `for "${searchQuery}"`}
             </h1>
             <p className="text-neutral-600">
-              {loading 
+              {isLoading 
                 ? "Searching for products..."
                 : results.length > 0 
                   ? `Found ${results.length} result${results.length !== 1 ? 's' : ''}`
@@ -58,7 +59,7 @@ const Search = () => {
         </div>
 
         <div className="container mx-auto px-4 py-10">
-          {loading ? (
+          {isLoading ? (
             <div className="flex items-center justify-center py-16">
               <div className="animate-pulse space-y-6 w-full max-w-3xl">
                 <div className="h-10 bg-neutral-200 rounded-md w-1/3"></div>

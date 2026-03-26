@@ -531,10 +531,24 @@ export const industries: Industry[] = [
   }
 ];
 
+// Map page category names to product categories (for category pages)
+const categoryToProductCategories: Record<string, string[]> = {
+  "Bearings": ["Ball Bearings", "Roller Bearings"],
+  "Speciality Lubricants": ["Lubricants"],
+  "Automotive Parts": ["Auto Parts"],
+  "Self Lubricating Bushes": ["Bushes"],
+};
+
 // Filter products by category
 export const getProductsByCategory = (category: string): Product[] => {
-  return products.filter(product => 
-    product.category.toLowerCase() === category.toLowerCase() || 
+  const mappedCategories = categoryToProductCategories[category];
+  if (mappedCategories) {
+    return products.filter(product =>
+      mappedCategories.some(mc => product.category.toLowerCase() === mc.toLowerCase())
+    );
+  }
+  return products.filter(product =>
+    product.category.toLowerCase() === category.toLowerCase() ||
     (product.subcategory && product.subcategory.toLowerCase() === category.toLowerCase())
   );
 };

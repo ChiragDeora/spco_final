@@ -5,18 +5,18 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProductDetailComponent from "@/components/products/ProductDetail";
-import { getProductById, getRelatedProducts } from "@/lib/data";
+import { useProducts } from "@/contexts/ProductsContext";
 import { Product } from "@/components/products/ProductCard";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { getProductById, fetchProductById, getRelatedProducts, loading: contextLoading } = useProducts();
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Scroll to top when component mounts or product ID changes
     window.scrollTo(0, 0);
     setLoading(true);
     
@@ -25,14 +25,23 @@ const ProductDetail = () => {
       if (foundProduct) {
         setProduct(foundProduct);
         setRelatedProducts(getRelatedProducts(id, 3));
-      } else {
-        // If product not found, redirect to products page
-        navigate("/products", { replace: true });
+        setLoading(false);
+      } else if (!contextLoading) {
+        fetchProductById(id).then((fetched) => {
+          if (fetched) {
+            setProduct(fetched);
+            setRelatedProducts(getRelatedProducts(id, 3));
+          } else {
+            navigate("/products", { replace: true });
+          }
+          setLoading(false);
+        });
       }
+      // When contextLoading, keep loading true until context finishes
+    } else {
+      setLoading(false);
     }
-    
-    setLoading(false);
-  }, [id, navigate]);
+  }, [id, navigate, contextLoading, getProductById, fetchProductById, getRelatedProducts]);
 
   if (loading) {
     return (

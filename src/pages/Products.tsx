@@ -6,11 +6,12 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProductFilters from "@/components/products/ProductFilters";
 import ProductGrid from "@/components/products/ProductGrid";
-import { products, getProductsByCategory } from "@/lib/data";
+import { useProducts } from "@/contexts/ProductsContext";
 
 const Products = () => {
   const { category } = useParams();
   const location = useLocation();
+  const { products, loading, getProductsByCategory } = useProducts();
   const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({});
   const [filteredProducts, setFilteredProducts] = useState(products);
 
@@ -28,7 +29,7 @@ const Products = () => {
     
     // Reset active filters when category changes
     setActiveFilters({});
-  }, [category, location.pathname]);
+  }, [category, location.pathname, products, getProductsByCategory]);
 
   // Apply filters to products
   useEffect(() => {
@@ -60,7 +61,7 @@ const Products = () => {
     }
     
     setFilteredProducts(result);
-  }, [activeFilters, category]);
+  }, [activeFilters, category, products, getProductsByCategory]);
 
   // Generate filter options from products
   const categories = Array.from(new Set(products.map(p => p.category)));
@@ -95,6 +96,21 @@ const Products = () => {
   const breadcrumbItems = category
     ? [{ label: "Products", href: "/products" }, { label: pageTitle }]
     : [{ label: "Products" }];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow pt-24 flex items-center justify-center">
+          <div className="animate-pulse">
+            <div className="h-8 w-32 bg-neutral-200 rounded mb-4"></div>
+            <div className="h-4 w-48 bg-neutral-200 rounded"></div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">

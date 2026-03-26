@@ -4,9 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-// import ProductGrid from "@/components/products/ProductGrid";
-import { Product } from "@/components/products/ProductCard";
-import { getProductsByCategory } from "@/lib/data";
+import ProductGrid from "@/components/products/ProductGrid";
+import { useProducts } from "@/contexts/ProductsContext";
 import { Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 // import rollerbearings from '@/assets/rollerbearings.jpg';
@@ -56,7 +55,7 @@ interface Brand {
 const ProductCategoryPage = () => {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
-  const [, setProducts] = useState<Product[]>([]);
+  const { getProductsByCategory, loading: contextLoading } = useProducts();
   const [categoryInfo, setCategoryInfo] = useState<CategoryInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -323,7 +322,6 @@ const ProductCategoryPage = () => {
   };
 
   useEffect(() => {
-    // Scroll to top when component mounts or category changes
     window.scrollTo(0, 0);
     setLoading(true);
     
@@ -331,12 +329,8 @@ const ProductCategoryPage = () => {
       const categoryData = categoriesData[category];
       
       if (categoryData) {
-        // Use the actual category name from categoryData to get products
-        const categoryProducts = getProductsByCategory(categoryData.name);
-        setProducts(categoryProducts);
         setCategoryInfo(categoryData);
       } else {
-        // If no category data found, redirect to main products page
         navigate("/products", { replace: true });
       }
     }
@@ -344,7 +338,9 @@ const ProductCategoryPage = () => {
     setLoading(false);
   }, [category, navigate]);
 
-  if (loading) {
+  const categoryProducts = categoryInfo ? getProductsByCategory(categoryInfo.name) : [];
+
+  if (loading || contextLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -556,7 +552,7 @@ const ProductCategoryPage = () => {
           </div>
         </section>
 
-        {/* Products Section
+        {/* Products Section */}
         <section id="products" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -566,7 +562,7 @@ const ProductCategoryPage = () => {
               </p>
             </div>
             
-            <ProductGrid products={products} />
+            <ProductGrid products={categoryProducts} />
             
             <div className="mt-12 text-center">
               <a href="/products" className="btn-primary">
@@ -574,7 +570,7 @@ const ProductCategoryPage = () => {
               </a>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Contact Section */}
         <section className="py-16 bg-spco-50">
