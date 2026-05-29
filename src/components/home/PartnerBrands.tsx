@@ -3,34 +3,16 @@ import miba from '@/assets/Miba.png';
 import rheinmetall from '@/assets/Rheinmetall.png';
 import cogelsa from '@/assets/cogelsa.png';
 import rbcBearings from '@/assets/rbc_bearings.png';
+import samick from '@/assets/Samick_brand_logo.png';
 
 const PartnerBrands = () => {
   const brands = [
-    { 
-      name: "Miba", 
-      logo: miba,
-      size: "h-20 w-auto" // Custom size for Miba
-    },
-    { 
-      name: "Rheinmetall", 
-      logo: rheinmetall,
-      size: "h-28 w-auto" // Custom size for Rheinmetall
-    },
-    { 
-      name: "NTN", 
-      logo: ntn,
-      size: "h-24 w-auto" // Increased from h-16
-    },
-    { 
-      name: "Cogelsa", 
-      logo: cogelsa,
-      size: "h-26 w-auto" // Larger size for Cogelsa
-    },
-    { 
-      name: "RBC Bearings", 
-      logo: rbcBearings,
-      size: "h-28 w-auto" // Custom size for RBC Bearings
-    },
+    { name: "Miba", logo: miba },
+    { name: "Rheinmetall", logo: rheinmetall, boost: "scale-[1.6]" },
+    { name: "NTN", logo: ntn },
+    { name: "Cogelsa", logo: cogelsa, boost: "scale-[1.4]" },
+    { name: "RBC Bearings", logo: rbcBearings },
+    { name: "Samick", logo: samick, boost: "scale-[1.5]" },
   ];
 
   return (
@@ -45,18 +27,18 @@ const PartnerBrands = () => {
           </p>
         </div>
         
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           {/* Static grid display of all brands */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-8">
             {brands.map((brand, index) => (
-              <div 
-                key={index} 
-                className="group h-48 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+              <div
+                key={index}
+                className="group h-32 flex items-center justify-center overflow-visible px-2 hover:scale-110 transition-transform duration-300 cursor-pointer"
               >
                 <img
                   src={brand.logo}
                   alt={`${brand.name} logo`}
-                  className="h-32 w-auto max-w-full object-contain opacity-100"
+                  className={`max-h-20 max-w-full w-auto object-contain ${brand.boost ?? ""}`}
                 />
               </div>
             ))}

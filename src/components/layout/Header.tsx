@@ -59,7 +59,7 @@ const Header = () => {
         { name: 'Linear Motion Bearings', href: '/products/linear-motion-bearings' },
       ]
     },
-    { name: 'Shop', href: '/products' },
+    // { name: 'Shop', href: '/products' },
     // { 
     //   name: 'Industries', 
     //   href: '/industries',

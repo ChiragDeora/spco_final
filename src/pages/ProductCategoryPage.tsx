@@ -4,10 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import ProductGrid from "@/components/products/ProductGrid";
+// import ProductGrid from "@/components/products/ProductGrid";
 import { useProducts } from "@/contexts/ProductsContext";
 import { cn } from "@/lib/utils";
-import { Cog, Shield, Award } from "lucide-react";
+import { Cog, Shield, Award, ExternalLink } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 // import rollerbearings from '@/assets/rollerbearings.jpg';
 import cogelsa_lubricants from '@/assets/cogelsa_lubricants.png';
@@ -54,12 +54,13 @@ interface Brand {
   size?: string;
   logoContainerClassName?: string;
   logoClassName?: string;
+  url?: string;
 }
 
 const ProductCategoryPage = () => {
   const { category } = useParams<{ category: string }>();
   const navigate = useNavigate();
-  const { getProductsByCategory, loading: contextLoading } = useProducts();
+  const { loading: contextLoading } = useProducts();
   const [categoryInfo, setCategoryInfo] = useState<CategoryInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -68,111 +69,150 @@ const ProductCategoryPage = () => {
     "linear-motion-bearings": [
       {
         name: "Samick",
-        description: "Samick is a leading manufacturer of linear motion systems, including linear guides, ball screws, and related precision components. Known for high rigidity, smooth travel, and long service life, Samick products support automation, machine tools, packaging, and general industrial equipment where accurate linear movement is essential.",
+        description:
+          "Samick is a South Korean precision engineering company and one of Asia's foremost manufacturers of linear motion systems. Their product range spans linear guideways, ball screws, linear bushings, and actuator modules, all engineered for the exacting demands of CNC machine tools, semiconductor equipment, robotics, and industrial automation.\n\nSamick's linear guides are characterised by high load capacity in all four directions, low running noise, and exceptional positional repeatability. The company's manufacturing facilities operate under strict ISO quality controls, with in-house raceway grinding and assembly ensuring tight tolerances throughout. Whether deployed in high-speed pick-and-place systems or heavy-duty gantry machines, Samick components are trusted for their consistency across millions of cycles.",
         logo: samickLogo,
-        logoClassName: "w-full h-full object-contain scale-[1.2]",
+        url: "https://www.mysamick.com/English/html/default.html",
       }
     ],
+  
     "bearings": [
       {
         name: "NTN",
-        description: "NTN is a global leader in the manufacturing of bearings and precision equipment, with a history spanning over 100 years. Known for its rigorous quality standards and innovative products, NTN serves a wide array of markets, including industrial, automotive, and aerospace. They are a trusted partner for high-performing bearing solutions that enhance productivity and efficiency.",
-        logo: ntnLogo
+        description:
+          "NTN Corporation, founded in 1918 in Japan, is one of the world's three largest bearing manufacturers and a cornerstone supplier across industrial, automotive, and aerospace markets. Their catalogue spans deep groove ball bearings, angular contact bearings, tapered and spherical roller bearings, needle rollers, and highly specialised units for EV drivetrains and aerospace actuation systems.\n\nNTN's engineering strength lies in materials science and surface technology, including proprietary steel compositions, advanced heat treatment processes, and precision-ground raceways that deliver extended fatigue life and quieter operation. Their global manufacturing footprint spans Japan, the Americas, Europe, and Asia, supported by a dense network of authorised distributors and application engineers who provide bearing selection, mounting guidance, and lubrication recommendations.",
+        logo: ntnLogo,
+        url: "https://www.ntnglobal.com/en/",
       },
       {
         name: "ZEN",
-        description: "Established in Germany, ZEN specializes in manufacturing high-quality bearings for a variety of industries. With a strong commitment to precision and durability, ZEN's products are manufactured to stringent German industry standards. They offer a diverse range of bearings, from miniature to custom-engineered solutions, supported by a global distribution network.",
-        logo: zenLogo
+        description:
+          "ZEN is a precision bearing brand with strong roots in German engineering standards, supplying a comprehensive range of single and double row deep groove ball bearings, angular contact bearings, self-aligning bearings, and housed units. Manufactured to DIN and ISO specifications, ZEN bearings are built for dimensional interchangeability with major global brands, making them a reliable choice for MRO and OEM applications alike.\n\nThe range covers everything from miniature bearings for instrument applications down to sub-10mm bore sizes, through to medium-series bearings for pumps, compressors, gearboxes, and agricultural machinery. ZEN's quality assurance processes include noise and vibration screening, dimensional inspection, and material traceability, ensuring consistent performance in both continuous-duty and intermittent applications.",
+        logo: zenLogo,
+        url: "https://www.zen.biz/",
       }
     ],
+  
     "speciality-lubricants": [
       {
         name: "Cogelsa",
-        description: "Cogelsa is a Spanish company with over a century of experience in developing, manufacturing, and marketing high-tech lubricants and greases. They are a global expert in industrial lubrication, offering specialized solutions for a wide range of sectors. Cogelsa is dedicated to providing high-performance, cost-efficient, and sustainable lubrication products.",
-        logo: cogelsaLogo
+        description:
+          "Cogelsa is a Spanish industrial lubricants specialist with over a century of formulation expertise, operating at the intersection of chemistry and mechanical engineering. The company develops and manufactures a comprehensive portfolio of greases, oils, pastes, and specialty compounds tailored to specific operating environments, from extreme-pressure gear lubrication to food-grade conveyor greases and high-temperature chain oils.\n\nCogelsa's R&D teams work closely with end users and OEMs to solve tribological challenges that generic lubricants cannot address, including applications involving wide temperature swings, aggressive media exposure, heavy contamination, or stringent regulatory requirements. Their product lines include synthetic PAO and ester-based formulations, lithium complex and polyurea-thickened greases, and environmentally acceptable lubricants for sensitive ecosystems. ISO 9001 and ISO 14001 certified, Cogelsa also provides lubrication auditing and consumption optimisation services.",
+        logo: cogelsaLogo,
+        url: "https://www.cogelsa.com/en/",
       }
     ],
+  
     "automotive-parts": [
       {
         name: "Rheinmetall",
-        description: "Rheinmetall is a leading international technology group with a broad portfolio of products, including a significant presence in the automotive sector. The company provides a wide range of advanced solutions for engines and other automotive components. Known for its innovation and high-quality standards, Rheinmetall's portfolio is trusted by leading automotive manufacturers worldwide.",
-        logo: rheinmetallLogo
+        description:
+          "Rheinmetall is a German technology group with a dual identity as both a leading defence contractor and a major Tier 1 automotive supplier. Within the automotive division, Rheinmetall manufactures engine components and systems for passenger cars, commercial vehicles, and off-highway equipment, including pistons, piston rings, cylinder liners, valve train components, and air management systems such as intake modules and filter housings.\n\nThe company's engineering focus is on reducing internal combustion engine friction losses, improving thermal efficiency, and meeting tightening emissions standards across global markets. Rheinmetall components are designed to survive demanding duty cycles, with metallurgical development done in-house using proprietary aluminium alloys and surface coating technologies. Their products are supplied to virtually every major OEM and engine builder in Europe, North America, and Asia.",
+        logo: rheinmetallLogo,
+        url: "https://www.rheinmetall.com/en/products",
       }
     ],
+  
     "journal-tilting-pad-bearings": [
       {
         name: "MIBA",
-        description: "MIBA is a global developer and manufacturer of functional components for engines and powertrains. They specialize in high-precision parts, including engine and industrial bearings. MIBA is a key partner for many leading companies in the automotive, commercial vehicle, and power generation markets, known for its focus on efficiency and sustainability.",
-        logo: mibaLogo
+        description:
+          "MIBA AG is an Austrian industrial group and global leader in the design and manufacture of precision functional components for engines, powertrains, and rotating machinery. In the bearing segment, MIBA produces engine bearings, industrial plain bearings, and a comprehensive portfolio of tilting pad journal bearings through a family of acquired specialist brands.\n\nTheir manufacturing capabilities encompass bi-metal and tri-metal bearing shells, babbitt-lined tilting pads, and custom hydrodynamic bearing assemblies for gas and steam turbines, large compressors, pumps, and generators. MIBA's engineering teams provide full application analysis including rotordynamic simulation, thermal modelling, and oil film computation to optimise bearing geometry for each installation. With facilities in Austria, the USA, Germany, China, and India, and a global service network, MIBA supports the complete lifecycle of critical rotating equipment.",
+        logo: mibaLogo,
+        url: "https://www.miba.com/en/product-areas/industrial-bearings",
       },
       {
         name: "Orion",
-        description: "With a history that dates back to the mid-20th century, Orion built a reputation as a trusted designer and manufacturer of hydrodynamic bearings. Based in the United States, their legacy is rooted in providing high-quality pivoting shoe and tilting pad journal bearings. The acquisition by Miba has seamlessly integrated Orion's long-standing expertise and product quality into a global network.",
-        logo: orionLogo
+        description:
+          "Orion Corporation was established in the mid-20th century in the United States and built a distinguished reputation over several decades as a designer and manufacturer of hydrodynamic tilting pad journal and thrust bearings for high-speed turbomachinery. Operating from its base in the USA, Orion served power generation, oil and gas, and industrial processing markets with precision-engineered bearing solutions known for their reliability under demanding continuous-duty conditions.\n\nThe company's pivoting shoe bearing designs offered operators advantages in rotor stability and the ability to operate across a wide speed range without instability. Following its acquisition by MIBA, Orion's product lines and engineering expertise were integrated into MIBA's global industrial bearing platform, extending the reach of Orion's proven designs to customers worldwide through MIBA's distribution and service infrastructure.",
+        logo: orionLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       },
       {
         name: "Zollern",
-        description: "Zollern has a history spanning more than 300 years and is one of Germany's oldest family-owned companies. Renowned for its metal processing and engineering, Zollern was a key player in the plain and tilting pad bearing market. Their hydrodynamic bearings were integral to power generation and various industrial applications. Miba's joint venture with Zollern in 2019 brought together their combined know-how, creating a powerhouse in the industrial bearing sector.",
-        logo: zollernLogo
+        description:
+          "Zollern GmbH & Co. KG is one of Germany's oldest and most storied family-owned industrial companies, with a history stretching back over 300 years to its origins in iron and metal processing in the Swabian Alps. In the modern era, Zollern became a recognised manufacturer of hydrodynamic plain bearings and tilting pad bearing systems for power generation turbines, marine propulsion shafts, large industrial gearboxes, and heavy rotating equipment.\n\nTheir bearing designs were noted for their engineering rigour and the ability to accommodate high specific loads while maintaining thin-film lubrication integrity at both steady-state and transient operating conditions. In 2019, Miba entered into a strategic joint venture with Zollern's bearing division, combining MIBA's global manufacturing and distribution capabilities with Zollern's deep German engineering heritage to form one of the strongest hydrodynamic bearing businesses in the world.",
+        logo: zollernLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       },
       {
         name: "John Crane",
-        description: "John Crane was a well-known name in the world of mechanical seals and hydrodynamic bearings. With roots in Germany and the USA, their industrial bearings segment was celebrated for its high-performance, technically sophisticated designs. The acquisition of this division by Miba in 2018 significantly bolstered Miba's capabilities, adding a robust portfolio of tilting pad bearings for turbines, compressors, and pumps, along with a strong global service network.",
-        logo: johnCraneLogo
+        description:
+          "John Crane is a globally recognised name in the field of rotating equipment components, with its industrial bearings division having earned a strong reputation for technically sophisticated hydrodynamic and tilting pad bearing designs. Operating from manufacturing sites in Germany and the USA, the bearings business served turbine OEMs, compressor manufacturers, and end users in oil and gas, petrochemical, and power generation, where bearing performance is directly linked to plant availability and profitability.\n\nJohn Crane's tilting pad bearing designs were valued for their rotor dynamic stability characteristics, high load capacity, and suitability for retrofit into existing equipment without major shaft modifications. MIBA's acquisition of the John Crane industrial bearings division in 2018 was a transformative step, significantly expanding MIBA's engineering talent pool, OEM relationships, and global aftermarket service capabilities for critical turbomachinery applications.",
+        logo: johnCraneLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       },
       {
         name: "Sartorius Bearings",
-        description: "Sartorius Bearings has built a reputation for precision-engineered plain and tilting pad bearings used in turbines, compressors, and heavy-duty industrial machinery. Their expertise lies in designing reliable, long-lasting solutions that ensure high efficiency and performance in demanding environments. Now part of Miba's network, Sartorius strengthens the portfolio with proven technology and application-specific designs that support industries such as power generation and process equipment.",
-        logo: sartoriusLogo
+        description:
+          "Sartorius Bearings is a precision engineering specialist with a long-standing focus on plain and tilting pad hydrodynamic bearings for turbines, turbocompressors, and heavy-duty rotating industrial machinery. The company's engineering approach centres on optimising pad geometry, pivot design, and babbitt alloy selection to achieve the ideal combination of load capacity, damping characteristics, and temperature stability for each specific application.\n\nSartorius products are deployed in power plant steam turbines, large gas compressors, and process equipment across energy, chemical, and industrial sectors where unplanned downtime carries significant operational and financial consequences. As part of MIBA's industrial bearing portfolio, Sartorius benefits from expanded manufacturing resources and global logistics while continuing to offer the application-specific engineering customisation that the brand has always been known for.",
+        logo: sartoriusLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       },
       {
         name: "Admos Gleitlager",
-        description: "Admos Gleitlager is known for its advanced hydrodynamic and tilting pad bearings, engineered for heavy-duty applications in power plants, petrochemical industries, and marine systems. Their focus on customized solutions and robust engineering ensures durability under extreme operating conditions. As a trusted brand, Admos brings specialized knowledge and innovation to Miba's lineup, offering customers enhanced reliability and long service life across critical machinery.",
-        logo: admosLogo
+        description:
+          "Admos Gleitlager is a specialist manufacturer of hydrodynamic plain bearings and tilting pad bearing systems engineered for the most demanding heavy-duty applications, including large power plant turbines, centrifugal compressors in petrochemical facilities, and marine propulsion and auxiliary machinery. Admos has built its reputation on the ability to develop customised bearing solutions for non-standard installations, including oversized journal diameters, asymmetric pad configurations, and hybrid designs that incorporate active lubrication features such as directed lubrication nozzles or embedded temperature and vibration sensors.\n\nTheir products are manufactured from high-grade babbitt alloys applied over steel shells or bronze backing plates, with surface geometry verified through CMM inspection and oil film testing on in-house test rigs. Within MIBA's portfolio, Admos represents a capability for the most technically complex and custom-engineered bearing requirements.",
+        logo: admosLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       },
       {
         name: "TCE (Turbo Components & Engineering)",
-        description: "TCE is a manufacturer of journal and tilting pad bearings designed for high-speed and high-load rotating equipment such as turbines and compressors. With decades of expertise in precision manufacturing, TCE has earned recognition for its ability to deliver dependable and efficient bearing solutions. Integration with Miba's global network strengthens customer access to advanced bearing technologies and technical support for demanding industrial applications.",
-        logo: tceLogo
+        description:
+          "TCE, Turbo Components & Engineering, is a manufacturer with decades of focused expertise in journal and tilting pad bearings for high-speed, high-load rotating equipment, particularly steam and gas turbines, centrifugal compressors, and large blowers. TCE's engineering capability is built around a thorough understanding of rotordynamic behaviour, allowing the company to design bearings that not only carry load reliably but also contribute positively to rotor stability and vibration control across the operating speed range.\n\nTheir manufacturing processes include precision boring and lapping of bearing bores, babbitt casting and bonding, pad pivot fabrication, and assembly with full dimensional verification. TCE serves both new equipment supply and the aftermarket replacement segment, providing bearing sets and individual components to extend the service life of existing turbomachinery. Integration with MIBA's global network has strengthened TCE's access to international markets and technical resources.",
+        logo: tceLogo,
+        url: "https://www.miba.com/en/innovation/industrial-bearings-history",
       }
     ],
+  
     "self-lubricating-bushes": [
       {
         name: "Permaglide",
-        description: "Permaglide is a registered trademark of KS Gleitlager, a leading German specialist in high-precision plain bearings. The brand name itself signifies 'permanently low-wear gliding,' highlighting the durability and low-maintenance nature of its products. Permaglide bearings are a preferred choice for their high rigidity, long service life, and excellent emergency running properties in both dry and lubricated applications.",
+        description:
+          "Permaglide is a registered trademark of KS Gleitlager GmbH, a German precision plain bearing specialist and part of the Rheinmetall automotive group. The name, derived from 'permanently low-wear gliding', precisely captures the product philosophy: maintenance-free or lubrication-interval-extended sliding bearings that deliver consistent performance over long service lives without the complexity of continuous lubrication systems.\n\nThe Permaglide range encompasses wrapped bushes, thrust washers, and strips in multiple material grades, including the flagship PA1 series, PTFE-lined steel-backed, PG series, solid bronze with graphite plugs, and PE series, sintered bronze. Each grade is engineered for a specific combination of load, speed, temperature, and media compatibility, from light-duty instrument pivots operating dry, to heavily loaded oscillating joints in construction machinery running in contaminated environments. Permaglide products are used across automotive, agricultural, aerospace, hydraulic, and general industrial applications.",
         logo: permaglideLogo,
-        size: "h-20 w-auto"
+        url: "https://www.permaglide.com/en",
       }
     ],
+  
     "adaptor-sleeves": [
       {
         name: "SPCO",
-        description: "Our own range of high-quality adaptor sleeves designed and manufactured to meet the highest industry standards. These components ensure secure bearing mounting and reliable performance in various mechanical assemblies.",
-        // logo: spcoLogo,
+        description:
+          "SPCO adaptor sleeves are SPCO's own in-house range of precision-manufactured bearing mounting components, developed to meet the rigorous demands of industrial power transmission and rotating machinery. Adaptor sleeves provide a reliable, standardised method of mounting self-aligning ball and roller bearings onto plain or stepped shafts, enabling fast and accurate bearing installation without the need for precision-ground shaft seats.\n\nThe SPCO sleeve range covers metric and inch shaft sizes in accordance with ISO 2982 standards, spanning light, medium, and heavy series to suit a broad spectrum of shaft diameters and bearing bore sizes. Materials are sourced from certified steel suppliers and manufactured to tight dimensional tolerances, with thread forms and lock nut interfaces verified for correct engagement and secure bearing retention under dynamic loads. SPCO adaptor sleeves are a cost-effective and dependable solution for conveyor systems, fans, pumps, gearboxes, and general industrial drive applications.",
         logo: spcoLogo,
-        size: "h-20 w-auto"
+        url: "https://www.spco.in/products/adaptor-sleeves",
       }
     ],
+  
     "seals": [
       {
         name: "Freudenberg Sealing Technologies",
-        description: "Global Leader in Sealing Solutions and Applications. Freudenberg Sealing Technologies is a proven supplier for demanding products and applications, and a development and service partner to customers in the automotive industries and in general industries. We apply 175 years of engineering and materials expertise.",
-        logo: freudenbergLogo
+        description:
+          "Freudenberg Sealing Technologies is a global leader in the development and manufacture of sealing solutions, with a heritage of over 175 years in materials science and precision engineering. Operating as a division of the Freudenberg Group, the company serves both the automotive and general industrial markets with one of the broadest sealing portfolios in the industry, encompassing oil seals, O-rings, hydraulic seals, mechanical face seals, gaskets, and specialised elastomeric mouldings.\n\nFreudenberg's core strength lies in materials innovation: the company develops and compounds its own elastomers, PTFE compounds, and thermoplastic elastomers in-house, enabling seal geometries and material combinations precisely tailored to application-specific media, temperature, pressure, and speed requirements. Their engineering teams collaborate with customers from early design stages through validation testing, offering simulation-led seal development that shortens time-to-market and reduces field failures.",
+        logo: freudenbergLogo,
+        url: "https://www.fst.com/",
       },
       {
         name: "Merkel",
-        description: "Sealing technology acknowledged worldwide. Merkel is the market leader in the field of seals for heavy industry. With innovative solutions and definitive products for all sectors, we rank among the world's best-thought-of experts on sealing technology. The quality of Merkel seals is recognized worldwide.",
-        logo: merkelLogo
+        description:
+          "Merkel is a market-leading brand in industrial sealing technology, with particular strength in heavy industry, hydraulic systems, and high-pressure applications. Operating under the Freudenberg umbrella, Merkel offers an extensive range of hydraulic cylinder seals, piston seals, rod seals, wiper seals, and guide elements manufactured from precision-grade elastomers, PTFE, and polyurethane compounds.\n\nThe Merkel brand is synonymous with sealing solutions that perform reliably in harsh environments, including high pressures, wide temperature ranges, abrasive media, and long duty cycles in steel mills, mobile hydraulic equipment, offshore machinery, and industrial presses. Merkel's engineering team supports customers with seal groove design recommendations, material selection for specific hydraulic fluids, and custom profile design for non-standard cylinder geometries. Their products are validated through rigorous in-house test rig programmes simulating real-world operating conditions.",
+        logo: merkelLogo,
+        url: "https://products.fst.com/global/en/search?text=Merkel",
       },
       {
         name: "NOK",
-        description: "Globally Recognized World Class Quality. The NOK Oil Seal Division, which is a production base for oil seals, has obtained ISO 9001 certification, an international quality standard. We will continue to supply products that meet our customers' needs and strive to further improve our quality so that we can earn even higher levels of trust than ever before.",
-        logo: nokLogo
+        description:
+          "NOK Corporation is Japan's largest manufacturer of sealing products and a globally respected name in oil seals, O-rings, mechanical seals, and precision rubber components. Founded in 1939, NOK supplies the global automotive industry as a major OEM-level seal supplier while also serving the industrial, hydraulic, pneumatic, and semiconductor equipment markets.\n\nThe NOK Oil Seal Division operates under ISO 9001 certification and maintains strict statistical process controls throughout rubber compounding, moulding, and finishing operations. NOK's sealing products are engineered for minimal friction, low leakage, and resistance to modern lubricants and synthetic media, including the low-viscosity and ester-based oils increasingly used in fuel-efficient engines. The company invests significantly in lip geometry research and elastomer development, resulting in seals with extended service intervals and reduced shaft wear, a key advantage in equipment where seal replacement requires significant disassembly time.",
+        logo: nokLogo,
+        url: "https://www.nokgrp.com/en/",
       },
       {
         name: "Simrit",
-        description: "Your technology specialist for seals and Vibration control. Our unique service package sets standards in quality, functionality and cost effectiveness throughout the industry.",
-        logo: simritLogo
+        description:
+          "Simrit is the sealing and vibration control technology brand of Freudenberg Sealing Technologies, operating as a specialist division targeting industrial OEM and MRO markets with a focus on technical depth and application-specific problem solving. The Simrit portfolio covers radial shaft seals, hydraulic and pneumatic seals, O-rings, profiled seals, and anti-vibration mounts, all backed by Freudenberg's proprietary elastomer compounding and tooling capabilities.\n\nWhat sets Simrit apart is its consultative approach: the brand positions itself as a technology partner rather than a components supplier, working with design engineers to identify leakage root causes, evaluate material compatibility with process fluids and temperature cycles, and prototype alternative seal configurations when standard catalogue products are insufficient. Simrit's technical documentation and material selection guides are widely used as reference resources in industrial seal engineering, reflecting the brand's commitment to raising the overall standard of sealing practice in the markets it serves.",
+        logo: simritLogo,
+        url: "https://products.fst.com/global/en/search?text=Simrit",
       }
     ]
   };
@@ -371,7 +411,7 @@ const ProductCategoryPage = () => {
     setLoading(false);
   }, [category, navigate]);
 
-  const categoryProducts = categoryInfo ? getProductsByCategory(categoryInfo.name) : [];
+  // const categoryProducts = categoryInfo ? getProductsByCategory(categoryInfo.name) : [];
 
   if (loading || contextLoading) {
     return (
@@ -549,41 +589,70 @@ const ProductCategoryPage = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-8">
               {getBrandsForCategory(categoryInfo.id).map((brand, index) => (
-                <div key={index} className="group bg-white rounded-lg p-6 shadow-sm border border-neutral-100 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200 transition-all duration-300">
-                  <div className="flex items-center">
-                    {brand.logo ? (
-                      <div
-                        className={cn(
-                          "w-24 h-24 mr-6 flex items-center justify-center flex-shrink-0 bg-white rounded-lg border border-neutral-100",
-                          brand.logoContainerClassName ?? "p-3"
-                        )}
-                      >
-                        <img 
-                          src={brand.logo} 
-                          alt={`${brand.name} logo`} 
+                <div
+                  key={index}
+                  className="group relative overflow-hidden bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-2xl hover:-translate-y-1 hover:border-spco-200 transition-all duration-300"
+                >
+                  {/* Left accent bar reveals on hover */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-accent-500 to-spco-600 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300" />
+
+                  <div className="flex flex-col md:flex-row">
+                    {/* Logo panel */}
+                    <div className="md:w-96 flex-shrink-0 flex items-center justify-center p-6 md:p-8 bg-gradient-to-br from-spco-50/60 via-neutral-50 to-white border-b md:border-b-0 md:border-r border-neutral-100">
+                      {brand.logo ? (
+                        <div
                           className={cn(
-                            brand.logoClassName ?? "w-full h-full object-contain",
-                            brand.size
+                            "w-full h-40 md:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105",
+                            brand.logoContainerClassName
                           )}
-                        />
+                        >
+                          <img
+                            src={brand.logo}
+                            alt={`${brand.name} logo`}
+                            className={cn(
+                              brand.logoClassName ?? "w-full h-full object-contain",
+                              brand.size
+                            )}
+                          />
+                        </div>
+                      ) : (
+                        <div className="bg-gradient-to-br from-spco-600 to-spco-800 p-6 rounded-2xl group-hover:scale-105 transition-transform duration-300">
+                          <Award className="h-12 w-12 text-white" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 p-10 md:p-12">
+                      <div className="flex items-baseline gap-4 mb-4">
+                        <span className="text-xl font-bold text-spco-300 tabular-nums">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        {brand.url ? (
+                          <a
+                            href={brand.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link inline-flex items-center gap-2 text-3xl md:text-4xl font-bold text-spco-700 hover:text-accent-600 transition-colors"
+                          >
+                            {brand.name}
+                            <ExternalLink className="h-5 w-5 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </a>
+                        ) : (
+                          <h3 className="text-3xl md:text-4xl font-bold text-spco-700 group-hover:text-spco-800 transition-colors">
+                            {brand.name}
+                          </h3>
+                        )}
                       </div>
-                    ) : (
-                      <div className="bg-gradient-to-br from-spco-600 to-spco-800 p-4 rounded-full mr-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                        <Award className="h-8 w-8 text-white" />
-                      </div>
-                    )}
-                    <div className="flex-1">
-                      <div className="flex items-center mb-4">
-                        <h3 className="text-2xl font-bold text-spco-700 group-hover:text-spco-800 transition-colors mr-4">{brand.name}</h3>
-                        {/* <span className="text-sm text-accent-600 font-medium bg-accent-50 px-3 py-1 rounded-full">Premium Partner</span> */}
-                      </div>
-                      <div className="relative">
-                        <div className="absolute -top-2 left-0 w-16 h-1 bg-gradient-to-r from-accent-500 to-spco-600 rounded-full"></div>
-                        <p className="text-neutral-600 text-base leading-relaxed pt-4">
-                          {brand.description}
-                        </p>
+                      <div className="w-20 h-1.5 bg-gradient-to-r from-accent-500 to-spco-600 rounded-full mb-7" />
+                      <div className="space-y-4 text-neutral-600 text-base md:text-lg leading-relaxed">
+                        {brand.description
+                          .split("\n\n")
+                          .map((para, i) => (
+                            <p key={i}>{para}</p>
+                          ))}
                       </div>
                     </div>
                   </div>
@@ -594,7 +663,7 @@ const ProductCategoryPage = () => {
         </section>
 
         {/* Products Section */}
-        <section id="products" className="py-16 bg-white">
+        {/* <section id="products" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="section-title">Browse Our {categoryInfo.name}</h2>
@@ -611,7 +680,7 @@ const ProductCategoryPage = () => {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section className="py-16 bg-spco-50">
