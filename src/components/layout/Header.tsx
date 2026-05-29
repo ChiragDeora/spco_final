@@ -56,6 +56,7 @@ const Header = () => {
         { name: 'Self Lubricating Bushes', href: '/products/self-lubricating-bushes' },
         { name: 'Adaptor Sleeves', href: '/products/adaptor-sleeves' },
         { name: 'Seals', href: '/products/seals' },
+        { name: 'Linear Motion Bearings', href: '/products/linear-motion-bearings' },
       ]
     },
     { name: 'Shop', href: '/products' },

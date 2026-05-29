@@ -68,6 +68,13 @@ const ProductCategories = () => {
       description: "Comprehensive sealing solutions for static, dynamic, and specialized applications across various industries.",
       src: sealImage,
       link: "/products/seals"
+    },
+    {
+      id: "linear-motion-bearings",
+      name: "Linear Motion Bearings",
+      description: "Linear guides and motion systems for precise, low-friction movement in automation and machine tools.",
+      src: ballbearings,
+      link: "/products/linear-motion-bearings"
     }
   ];
 
@@ -115,8 +122,8 @@ const ProductCategories = () => {
           ))}
           </div>
           
-          {/* Second row - 3 categories centered */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Second row - remaining categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.slice(4).map((category) => (
               <Link key={category.id} to={category.link} className="group">
                 <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 h-full">

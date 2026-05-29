@@ -533,6 +533,7 @@ export const industries: Industry[] = [
 
 // Map page category names to product categories (for category pages)
 const categoryToProductCategories: Record<string, string[]> = {
+  "Linear Motion Bearings": ["Linear Motion Bearings"],
   "Bearings": ["Ball Bearings", "Roller Bearings"],
   "Speciality Lubricants": ["Lubricants"],
   "Automotive Parts": ["Auto Parts"],

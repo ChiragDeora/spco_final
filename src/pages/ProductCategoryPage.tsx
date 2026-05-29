@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProductGrid from "@/components/products/ProductGrid";
 import { useProducts } from "@/contexts/ProductsContext";
+import { cn } from "@/lib/utils";
 import { Cog, Shield, Award } from "lucide-react";
 import ballbearings from '@/assets/ballbearings.jpg';
 // import rollerbearings from '@/assets/rollerbearings.jpg';
@@ -34,6 +35,7 @@ import freudenbergLogo from '@/assets/freudenberg_logo.png';
 import merkelLogo from '@/assets/merkel-logo.png';
 import nokLogo from '@/assets/nok_logo.jpeg';
 import simritLogo from '@/assets/simrit_logo.png';
+import samickLogo from '@/assets/Samick_brand_logo.png';
 
 interface CategoryInfo {
   id: string;
@@ -50,6 +52,8 @@ interface Brand {
   description: string;
   logo?: string;
   size?: string;
+  logoContainerClassName?: string;
+  logoClassName?: string;
 }
 
 const ProductCategoryPage = () => {
@@ -61,6 +65,14 @@ const ProductCategoryPage = () => {
 
   // Brands data for each category
   const brandsData: { [key: string]: Brand[] } = {
+    "linear-motion-bearings": [
+      {
+        name: "Samick",
+        description: "Samick is a leading manufacturer of linear motion systems, including linear guides, ball screws, and related precision components. Known for high rigidity, smooth travel, and long service life, Samick products support automation, machine tools, packaging, and general industrial equipment where accurate linear movement is essential.",
+        logo: samickLogo,
+        logoClassName: "w-full h-full object-contain scale-[1.2]",
+      }
+    ],
     "bearings": [
       {
         name: "NTN",
@@ -172,6 +184,27 @@ const ProductCategoryPage = () => {
 
   // Category data with detailed information
   const categoriesData: { [key: string]: CategoryInfo } = {
+    "linear-motion-bearings": {
+      id: "linear-motion-bearings",
+      name: "Linear Motion Bearings",
+      description: "Precision linear guides and motion components that enable accurate, low-friction movement along a fixed path.",
+      detailedDescription: "Linear motion bearings and guide systems provide controlled, low-friction movement for slides, stages, and automated machinery. They are essential in CNC equipment, robotics, packaging lines, and precision assembly where repeatability and load capacity matter. Our linear motion range is backed by trusted manufacturing partners to help you achieve reliable positioning and long service life.",
+      image: ballbearings,
+      features: [
+        "High rigidity and load capacity",
+        "Smooth, low-friction linear travel",
+        "Excellent positioning accuracy",
+        "Long service life in continuous operation",
+        "Wide range of sizes and configurations"
+      ],
+      applications: [
+        "CNC and machine tool slides",
+        "Automation and robotics",
+        "Packaging and material handling",
+        "Semiconductor and electronics assembly",
+        "General industrial positioning systems"
+      ]
+    },
     "bearings": {
       id: "bearings",
       name: "Bearings",
@@ -521,11 +554,19 @@ const ProductCategoryPage = () => {
                 <div key={index} className="group bg-white rounded-lg p-6 shadow-sm border border-neutral-100 hover:shadow-lg hover:-translate-y-1 hover:border-spco-200 transition-all duration-300">
                   <div className="flex items-center">
                     {brand.logo ? (
-                      <div className="w-24 h-24 mr-6 flex items-center justify-center flex-shrink-0 bg-white rounded-lg border border-neutral-100 p-3">
+                      <div
+                        className={cn(
+                          "w-24 h-24 mr-6 flex items-center justify-center flex-shrink-0 bg-white rounded-lg border border-neutral-100",
+                          brand.logoContainerClassName ?? "p-3"
+                        )}
+                      >
                         <img 
                           src={brand.logo} 
                           alt={`${brand.name} logo`} 
-                          className="w-full h-full object-contain"
+                          className={cn(
+                            brand.logoClassName ?? "w-full h-full object-contain",
+                            brand.size
+                          )}
                         />
                       </div>
                     ) : (

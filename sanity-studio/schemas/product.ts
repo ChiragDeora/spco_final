@@ -37,6 +37,7 @@ export const product = defineType({
           { title: 'Journal & Tilting Pad Bearings', value: 'Journal & Tilting Pad Bearings' },
           { title: 'Adaptor Sleeves', value: 'Adaptor Sleeves' },
           { title: 'Seals', value: 'Seals' },
+          { title: 'Linear Motion Bearings', value: 'Linear Motion Bearings' },
         ],
       },
       validation: (Rule) => Rule.required(),

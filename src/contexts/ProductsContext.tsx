@@ -60,6 +60,7 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
       if (useSanity) {
         const categoryNorm = category.toLowerCase().replace(/-/g, ' ')
         const mappedCategories: Record<string, string[]> = {
+          'linear motion bearings': ['Linear Motion Bearings'],
           bearings: ['Ball Bearings', 'Roller Bearings'],
           'speciality lubricants': ['Lubricants'],
           'automotive parts': ['Auto Parts'],

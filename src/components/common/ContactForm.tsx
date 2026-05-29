@@ -61,6 +61,7 @@ const ContactForm = ({
   const productOptions = [
     "Ball Bearings",
     "Roller Bearings",
+    "Linear Motion Bearings",
     "Lubricants",
     "Auto Parts",
     "Bushes",

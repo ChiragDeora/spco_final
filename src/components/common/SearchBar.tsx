@@ -19,6 +19,7 @@ const SearchBar = ({ className }: SearchBarProps) => {
     "Deep Groove Ball Bearings",
     "Angular Contact Bearings",
     "Roller Bearings",
+    "Linear Motion Bearings",
     "Lubricants",
     "Auto Parts",
     "Bushes"
